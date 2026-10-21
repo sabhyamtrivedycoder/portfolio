@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Computer Vision Labs | Sabhyam Trivedy (Spatial & Optical Systems)</title>
-  <meta name="description" content="Explore 4 real-time interactive computer vision applications engineered by Sabhyam Trivedy: CardioVision, CV Fitness Rep Counter, AirCanvas AI, and Anime Gesture Attacks.">
+  <meta name="description" content="Explore 4 real-time interactive computer vision applications engineered by Sabhyam Trivedy: NeuroGaze AI, CV Fitness Rep Counter, AirCanvas AI, and Anime Gesture Attacks.">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,43 +51,43 @@
     <div class="container">
       <div style="display: flex; flex-direction: column; gap: 3.5rem;">
 
-        <!-- Project 1: CardioVision -->
+        <!-- Project 1: NeuroGaze AI -->
         <div class="glass-card" style="padding: 2.5rem; border-radius: 24px; border: 1px solid rgba(6, 182, 212, 0.3); background: rgba(13, 23, 42, 0.85); box-shadow: 0 10px 40px rgba(6, 182, 212, 0.08);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
             <div style="display: flex; gap: 0.75rem; align-items: center;">
-              <span class="cv-tag">Digital Signal Processing</span>
-              <span class="cv-badge">Medical rPPG</span>
+              <span class="cv-tag">Spatial Biometrics</span>
+              <span class="cv-badge">Dual Iris & EAR</span>
             </div>
-            <span style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">30/60 FPS Video Stream</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">468 FaceMesh + 10 Iris</span>
           </div>
           
           <h2 style="font-size: 2rem; color: #fff; margin-bottom: 0.75rem;">
-            1. CardioVision — Contactless Optical rPPG Pulse & Vital Sign Monitor
+            1. NeuroGaze AI — Spatial Iris Tracking & Attention Heatmap Lab
           </h2>
           <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.75rem;">
-            Measures cardiac pulse rate, heart rate variability (HRV), and respiration rate without wearable hardware. Uses ambient webcam video to analyze subtle microvascular facial flush caused by pulsatile arterial blood flow, filtering the optical green channel through digital bandpass filters (0.75Hz – 3.0Hz) with adaptive peak detection and Web Audio heartbeat sonification.
+            Real-time biometric computer vision calculating Eye Aspect Ratio (EAR), blink fatigue kinetics, 3D head yaw/pitch/roll orientation, and dynamic visual attention heatmaps. Features an interactive hands-free dwell target clicker and acoustic telemetry synthesizer running client-side at 60 FPS.
           </p>
 
           <div class="grid-3" style="gap: 1.25rem; margin-bottom: 2rem;">
             <div style="background: rgba(5, 10, 20, 0.6); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05);">
-              <h4 style="color: var(--cyan); font-size: 0.95rem; margin-bottom: 0.3rem;">Green Channel rPPG</h4>
-              <p style="color: var(--text-muted); font-size: 0.85rem;">Leverages oxyhemoglobin light absorption peaks in the green spectrum (500–600nm) for maximum optical SNR.</p>
+              <h4 style="color: var(--cyan); font-size: 0.95rem; margin-bottom: 0.3rem;">Eye Aspect Ratio (EAR)</h4>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Mathematical vector formula measuring palpebral aperture distance against horizontal eye length with hysteresis state machine.</p>
             </div>
             <div style="background: rgba(5, 10, 20, 0.6); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05);">
-              <h4 style="color: var(--cyan); font-size: 0.95rem; margin-bottom: 0.3rem;">Digital Signal Processing</h4>
-              <p style="color: var(--text-muted); font-size: 0.85rem;">2nd-order Butterworth bandpass filtering, linear detrending, and rolling inter-beat interval (IBI) calculation.</p>
+              <h4 style="color: var(--cyan); font-size: 0.95rem; margin-bottom: 0.3rem;">3D Head Pose Matrix</h4>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Resolves head yaw, pitch, and roll in degrees using nasal tip, forehead, chin, and bilateral cheek landmarks.</p>
             </div>
             <div style="background: rgba(5, 10, 20, 0.6); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05);">
-              <h4 style="color: var(--cyan); font-size: 0.95rem; margin-bottom: 0.3rem;">Clinical HRV Metrics</h4>
-              <p style="color: var(--text-muted); font-size: 0.85rem;">Extracts autonomic nervous system indicators including SDNN, RMSSD, and respiratory sinus arrhythmia (RSA).</p>
+              <h4 style="color: var(--cyan); font-size: 0.95rem; margin-bottom: 0.3rem;">Dynamic Attention Heatmap</h4>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Accumulates screen fixation density points with Gaussian spatial falloff and temporal alpha decay over an HTML5 canvas.</p>
             </div>
           </div>
 
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="https://sabhyamtrivedycoder.github.io/cardiovision-pulse-monitor/" target="_blank" class="btn-primary" style="padding: 0.7rem 1.7rem;">
-              Launch Live App 💓
+            <a href="https://sabhyamtrivedycoder.github.io/neurogaze-ai/" target="_blank" class="btn-primary" style="padding: 0.7rem 1.7rem;">
+              Launch Live App 👁️
             </a>
-            <a href="https://github.com/sabhyamtrivedycoder/cardiovision-pulse-monitor" target="_blank" class="btn-secondary" style="padding: 0.7rem 1.7rem;">
+            <a href="https://github.com/sabhyamtrivedycoder/neurogaze-ai" target="_blank" class="btn-secondary" style="padding: 0.7rem 1.7rem;">
               GitHub Repository 🐙
             </a>
           </div>

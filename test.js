@@ -59,15 +59,16 @@ runTest('Real screenshot of sabhyamai.in exists and is embedded', () => {
   assert(venturesHtml.includes('assets/sabhyamai-screenshot.png'), 'ventures.html must embed sabhyamai screenshot');
 });
 
-// 3. 4 Computer Vision Projects with AirCanvas Replacement
-runTest('Computer Vision Suite features CardioVision, CV Fitness, AirCanvas AI, and Anime Gestures', () => {
+// 3. 4 Computer Vision Projects with NeuroGaze AI & AirCanvas Replacements
+runTest('Computer Vision Suite features NeuroGaze AI, CV Fitness, AirCanvas AI, and Anime Gestures', () => {
   const visionHtml = fs.readFileSync(path.join(portfolioDir, 'vision.html'), 'utf-8');
-  assert(visionHtml.includes('CardioVision'), 'Must feature CardioVision');
+  assert(visionHtml.includes('NeuroGaze AI'), 'Must feature NeuroGaze AI');
   assert(visionHtml.includes('CV Fitness'), 'Must feature CV Fitness');
   assert(visionHtml.includes('AirCanvas AI'), 'Must feature AirCanvas AI');
   assert(visionHtml.includes('Anime Gesture Attacks'), 'Must feature Anime Gesture Attacks');
 
-  // Verify God's Eye is completely removed
+  // Verify CardioVision/respiration and God's Eye are completely removed
+  assert(!visionHtml.toLowerCase().includes("cardiovision"), "CardioVision must be removed from vision.html");
   assert(!visionHtml.toLowerCase().includes("god's eye"), "God's Eye must be removed from vision.html");
   assert(!visionHtml.toLowerCase().includes("gods-eye"), "Gods-eye link must be removed from vision.html");
 });
@@ -75,7 +76,7 @@ runTest('Computer Vision Suite features CardioVision, CV Fitness, AirCanvas AI, 
 // 4. Local CV Project Paths Resolve Correctly
 runTest('All 4 CV project relative paths resolve to valid local installations', () => {
   const projectPaths = [
-    path.join(portfolioDir, '../cardiovision-pulse-monitor/index.html'),
+    path.join(portfolioDir, '../neurogaze-ai/index.html'),
     path.join(portfolioDir, '../cv-fitness-rep-counter/index.html'),
     path.join(portfolioDir, '../aircanvas-vision-ai/index.html'),
     path.join(portfolioDir, '../anime-gesture-attacks/index.html')
