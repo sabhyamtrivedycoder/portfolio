@@ -1,0 +1,23 @@
+{
+  "name": "sabhyam-portfolio",
+  "version": "1.0.0",
+  "description": "Official flagship portfolio of Sabhyam Trivedy - 14-Year-Old Software Engineer, Founder of Spark2Ship & sabhyamai.in, and Computer Vision Innovator.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -l 3000 .",
+    "test": "node test.js"
+  },
+  "author": "Sabhyam Trivedy <sabhyamtrivedy@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "portfolio",
+    "sabhyam-trivedy",
+    "spark2ship",
+    "sabhyamai",
+    "computer-vision",
+    "mediapipe",
+    "rppg",
+    "ar-hud",
+    "full-stack"
+  ]
+}
