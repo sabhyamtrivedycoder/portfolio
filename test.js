@@ -198,6 +198,25 @@ runTest('Portfolio logo and circular profile picture are configured across all p
   assert(stylesCss.includes('border-radius: 50%'), 'Avatar must have border-radius: 50%');
 });
 
+// 10. Class 10 AI Venture Integration Verification
+runTest('Portfolio features Class10 AI across index, ventures, about, and resume', () => {
+  const indexHtml = fs.readFileSync(path.join(portfolioDir, 'index.html'), 'utf-8');
+  const venturesHtml = fs.readFileSync(path.join(portfolioDir, 'ventures.html'), 'utf-8');
+  const aboutHtml = fs.readFileSync(path.join(portfolioDir, 'about.html'), 'utf-8');
+  const resumeHtml = fs.readFileSync(path.join(portfolioDir, 'resume.html'), 'utf-8');
+
+  assert(indexHtml.includes('Class10 AI'), 'index.html must feature Class10 AI');
+  assert(indexHtml.includes('https://sabhyamtrivedycoder.github.io/class10-ai/'), 'index.html must link to Class10 AI live platform');
+  assert(venturesHtml.includes('Class10 AI'), 'ventures.html must feature Class10 AI');
+  assert(venturesHtml.includes('https://sabhyamtrivedycoder.github.io/class10-ai/'), 'ventures.html must link to Class10 AI live platform');
+  assert(aboutHtml.includes('Class10 AI'), 'about.html must feature Class10 AI');
+  assert(resumeHtml.includes('Class10 AI'), 'resume.html must feature Class10 AI');
+
+  // Verify Class10 AI directory exists
+  const class10Dir = path.join(portfolioDir, '../class10-ai');
+  assert(fs.existsSync(path.join(class10Dir, 'index.html')), 'Class10 AI index.html must exist');
+});
+
 console.log('\n========================================');
 console.log(`Sabhyam Portfolio Verification Summary:`);
 console.log(`Passed: ${passedTests} / ${totalTests}`);
