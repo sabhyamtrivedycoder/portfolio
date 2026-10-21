@@ -122,6 +122,26 @@ runTest('STRICT CONSTRAINT: Zero occurrences of forbidden projects or names acro
   }
 });
 
+// 7. LinkedIn Profile Link Verification
+runTest('LinkedIn profile is linked across all 6 portfolio pages', () => {
+  const allPages = [
+    'index.html',
+    'about.html',
+    'ventures.html',
+    'vision.html',
+    'resume.html',
+    'contact.html'
+  ];
+
+  for (const p of allPages) {
+    const content = fs.readFileSync(path.join(portfolioDir, p), 'utf-8');
+    assert(
+      content.includes('linkedin.com/in/sabhyamtrivedy'),
+      `Missing LinkedIn link in ${p}`
+    );
+  }
+});
+
 console.log('\n========================================');
 console.log(`Sabhyam Portfolio Verification Summary:`);
 console.log(`Passed: ${passedTests} / ${totalTests}`);
