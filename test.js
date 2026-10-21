@@ -144,16 +144,21 @@ runTest('LinkedIn profile is linked across all 6 portfolio pages', () => {
 });
 
 // 8. HoloVerse AI Flagship Build Verification
-runTest('Portfolio features HoloVerse AI across index, ventures, and about pages', () => {
+runTest('Portfolio features HoloVerse AI across index, ventures, vision, about, and resume pages', () => {
   const indexHtml = fs.readFileSync(path.join(portfolioDir, 'index.html'), 'utf-8');
   const venturesHtml = fs.readFileSync(path.join(portfolioDir, 'ventures.html'), 'utf-8');
+  const visionHtml = fs.readFileSync(path.join(portfolioDir, 'vision.html'), 'utf-8');
   const aboutHtml = fs.readFileSync(path.join(portfolioDir, 'about.html'), 'utf-8');
+  const resumeHtml = fs.readFileSync(path.join(portfolioDir, 'resume.html'), 'utf-8');
 
   assert(indexHtml.includes('HoloVerse AI'), 'index.html must feature HoloVerse AI');
   assert(indexHtml.includes('https://sabhyamtrivedycoder.github.io/holoverse-ai/'), 'index.html must link to HoloVerse live app');
   assert(venturesHtml.includes('HoloVerse AI'), 'ventures.html must feature HoloVerse AI');
   assert(venturesHtml.includes('https://sabhyamtrivedycoder.github.io/holoverse-ai/'), 'ventures.html must link to HoloVerse live app');
+  assert(visionHtml.includes('HoloVerse AI'), 'vision.html must feature HoloVerse AI');
+  assert(visionHtml.includes('https://sabhyamtrivedycoder.github.io/holoverse-ai/'), 'vision.html must link to HoloVerse live app');
   assert(aboutHtml.includes('HoloVerse AI'), 'about.html must feature HoloVerse AI');
+  assert(resumeHtml.includes('HoloVerse AI'), 'resume.html must feature HoloVerse AI');
 
   // Verify HoloVerse directory exists
   const holoverseDir = path.join(portfolioDir, '../holoverse-ai');
