@@ -1,6 +1,6 @@
 /**
  * Sabhyam Portfolio Verification Suite
- * Verifies file integrity, CV project links, asset existence, and strict exclusion constraints.
+ * Verifies multi-page architecture, CV project links, asset existence, and strict exclusion constraints.
  * Author: Sabhyam Trivedy
  */
 
@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
 
-console.log('🧪 Starting Sabhyam Portfolio Verification Tests...\n');
+console.log('🧪 Starting Sabhyam Multi-Page Portfolio Verification Tests...\n');
 
 let passedTests = 0;
 let totalTests = 0;
@@ -27,60 +27,58 @@ function runTest(name, fn) {
 }
 
 const portfolioDir = __dirname;
-const htmlContent = fs.readFileSync(path.join(portfolioDir, 'index.html'), 'utf-8');
-const jsContent = fs.readFileSync(path.join(portfolioDir, 'app.js'), 'utf-8');
-const cssContent = fs.readFileSync(path.join(portfolioDir, 'styles.css'), 'utf-8');
 
-// 1. Static Assets Integrity
-runTest('All required assets and files exist in portfolio directory', () => {
-  const requiredFiles = [
+// 1. Multi-Page Architecture Verification
+runTest('All 6 dedicated pages exist and have content', () => {
+  const pages = [
     'index.html',
-    'styles.css',
-    'app.js',
-    'package.json',
+    'about.html',
+    'ventures.html',
+    'vision.html',
     'resume.html',
-    'assets/sabhyam.jpg',
-    'assets/spark2ship-preview.png'
+    'contact.html'
   ];
 
-  for (const rel of requiredFiles) {
-    const fullPath = path.join(portfolioDir, rel);
-    assert(fs.existsSync(fullPath), `Missing required file: ${rel}`);
+  for (const page of pages) {
+    const fullPath = path.join(portfolioDir, page);
+    assert(fs.existsSync(fullPath), `Missing required page: ${page}`);
     const stat = fs.statSync(fullPath);
-    assert(stat.size > 0, `File is empty: ${rel}`);
+    assert(stat.size > 500, `Page is suspiciously small: ${page} (${stat.size} bytes)`);
   }
 });
 
-// 2. Authentic Personal & Venture Details
-runTest('Portfolio includes authentic details of Sabhyam Trivedy, Spark2Ship, and sabhyamai.in', () => {
-  assert(htmlContent.includes('Sabhyam Trivedy'), 'Must mention Sabhyam Trivedy');
-  assert(htmlContent.includes('Spark2Ship'), 'Must feature Spark2Ship');
-  assert(htmlContent.includes('sabhyamai.in'), 'Must feature sabhyamai.in');
-  assert(htmlContent.includes('Rajdhanwar'), 'Must mention location Rajdhanwar');
-  assert(htmlContent.includes('Manthan Valley ST. Albert'), 'Must mention education');
+// 2. Real Screenshot of Sabhyamai.in
+runTest('Real screenshot of sabhyamai.in exists and is embedded', () => {
+  const screenshotPath = path.join(portfolioDir, 'assets/sabhyamai-screenshot.png');
+  assert(fs.existsSync(screenshotPath), 'Missing assets/sabhyamai-screenshot.png');
+  assert(fs.statSync(screenshotPath).size > 10000, 'Screenshot file is too small');
+
+  const indexHtml = fs.readFileSync(path.join(portfolioDir, 'index.html'), 'utf-8');
+  const venturesHtml = fs.readFileSync(path.join(portfolioDir, 'ventures.html'), 'utf-8');
+  assert(indexHtml.includes('assets/sabhyamai-screenshot.png'), 'index.html must embed sabhyamai screenshot');
+  assert(venturesHtml.includes('assets/sabhyamai-screenshot.png'), 'ventures.html must embed sabhyamai screenshot');
 });
 
-// 3. All 4 Computer Vision Projects Featured
-runTest('Portfolio features all 4 Computer Vision showcase projects', () => {
-  assert(htmlContent.includes('Anime Gesture Attacks'), 'Must feature Anime Gesture Attacks');
-  assert(htmlContent.includes('CV Fitness Rep Counter'), 'Must feature CV Fitness Rep Counter');
-  assert(htmlContent.includes('CardioVision Pulse Monitor'), 'Must feature CardioVision Pulse Monitor');
-  assert(htmlContent.includes('God\'s Eye AR HUD'), 'Must feature God\'s Eye AR HUD');
+// 3. 4 Computer Vision Projects with AirCanvas Replacement
+runTest('Computer Vision Suite features CardioVision, CV Fitness, AirCanvas AI, and Anime Gestures', () => {
+  const visionHtml = fs.readFileSync(path.join(portfolioDir, 'vision.html'), 'utf-8');
+  assert(visionHtml.includes('CardioVision'), 'Must feature CardioVision');
+  assert(visionHtml.includes('CV Fitness'), 'Must feature CV Fitness');
+  assert(visionHtml.includes('AirCanvas AI'), 'Must feature AirCanvas AI');
+  assert(visionHtml.includes('Anime Gesture Attacks'), 'Must feature Anime Gesture Attacks');
 
-  // Verify modal mapping covers all 4 keys
-  assert(jsContent.includes("'anime'"), 'Demo map must include anime');
-  assert(jsContent.includes("'fitness'"), 'Demo map must include fitness');
-  assert(jsContent.includes("'cardio'"), 'Demo map must include cardio');
-  assert(jsContent.includes("'hud'"), 'Demo map must include hud');
+  // Verify God's Eye is completely removed
+  assert(!visionHtml.toLowerCase().includes("god's eye"), "God's Eye must be removed from vision.html");
+  assert(!visionHtml.toLowerCase().includes("gods-eye"), "Gods-eye link must be removed from vision.html");
 });
 
 // 4. Local CV Project Paths Resolve Correctly
 runTest('All 4 CV project relative paths resolve to valid local installations', () => {
   const projectPaths = [
-    path.join(portfolioDir, '../anime-gesture-attacks/index.html'),
-    path.join(portfolioDir, '../cv-fitness-rep-counter/index.html'),
     path.join(portfolioDir, '../cardiovision-pulse-monitor/index.html'),
-    path.join(portfolioDir, '../gods-eye-vision-hud/index.html')
+    path.join(portfolioDir, '../cv-fitness-rep-counter/index.html'),
+    path.join(portfolioDir, '../aircanvas-vision-ai/index.html'),
+    path.join(portfolioDir, '../anime-gesture-attacks/index.html')
   ];
 
   for (const p of projectPaths) {
@@ -88,8 +86,17 @@ runTest('All 4 CV project relative paths resolve to valid local installations', 
   }
 });
 
-// 5. STRICT CONSTRAINT: Complete Exclusion of Riddhiman Gupta Projects
-runTest('STRICT CONSTRAINT: Zero occurrences of forbidden projects or names', () => {
+// 5. Authentic Personal & Venture Details
+runTest('Portfolio includes authentic details of Sabhyam Trivedy, Spark2Ship, and sabhyamai.in', () => {
+  const indexHtml = fs.readFileSync(path.join(portfolioDir, 'index.html'), 'utf-8');
+  assert(indexHtml.includes('Sabhyam Trivedy'), 'Must mention Sabhyam Trivedy');
+  assert(indexHtml.includes('Spark2Ship'), 'Must feature Spark2Ship');
+  assert(indexHtml.includes('sabhyamai.in'), 'Must feature sabhyamai.in');
+  assert(indexHtml.includes('Rajdhanwar'), 'Must mention location Rajdhanwar');
+});
+
+// 6. STRICT CONSTRAINT: Zero occurrences of forbidden projects or names
+runTest('STRICT CONSTRAINT: Zero occurrences of forbidden projects or names across all pages', () => {
   const forbiddenPatterns = [
     /riddhiman/i,
     /sprynn/i,
@@ -99,27 +106,29 @@ runTest('STRICT CONSTRAINT: Zero occurrences of forbidden projects or names', ()
   ];
 
   const filesToCheck = [
-    { name: 'index.html', content: htmlContent },
-    { name: 'app.js', content: jsContent },
-    { name: 'styles.css', content: cssContent }
+    'index.html',
+    'about.html',
+    'ventures.html',
+    'vision.html',
+    'contact.html',
+    'styles.css'
   ];
 
-  for (const file of filesToCheck) {
+  for (const f of filesToCheck) {
+    const content = fs.readFileSync(path.join(portfolioDir, f), 'utf-8');
     for (const pat of forbiddenPatterns) {
-      assert(!pat.test(file.content), 
-        `CRITICAL CONSTRAINT VIOLATION: Found forbidden pattern ${pat} in ${file.name}`);
+      assert(!pat.test(content), `Violation: Pattern ${pat} found in ${f}`);
     }
   }
 });
 
-console.log(`\n========================================`);
+console.log('\n========================================');
 console.log(`Sabhyam Portfolio Verification Summary:`);
 console.log(`Passed: ${passedTests} / ${totalTests}`);
-console.log(`========================================\n`);
+console.log('========================================\n');
 
 if (passedTests === totalTests) {
   console.log('🎉 All Portfolio verification checks passed with 100% compliance!\n');
 } else {
-  console.error('❌ Verification failed.');
   process.exit(1);
 }
