@@ -143,6 +143,23 @@ runTest('LinkedIn profile is linked across all 6 portfolio pages', () => {
   }
 });
 
+// 8. HoloVerse AI Flagship Build Verification
+runTest('Portfolio features HoloVerse AI across index, ventures, and about pages', () => {
+  const indexHtml = fs.readFileSync(path.join(portfolioDir, 'index.html'), 'utf-8');
+  const venturesHtml = fs.readFileSync(path.join(portfolioDir, 'ventures.html'), 'utf-8');
+  const aboutHtml = fs.readFileSync(path.join(portfolioDir, 'about.html'), 'utf-8');
+
+  assert(indexHtml.includes('HoloVerse AI'), 'index.html must feature HoloVerse AI');
+  assert(indexHtml.includes('https://sabhyamtrivedycoder.github.io/holoverse-ai/'), 'index.html must link to HoloVerse live app');
+  assert(venturesHtml.includes('HoloVerse AI'), 'ventures.html must feature HoloVerse AI');
+  assert(venturesHtml.includes('https://sabhyamtrivedycoder.github.io/holoverse-ai/'), 'ventures.html must link to HoloVerse live app');
+  assert(aboutHtml.includes('HoloVerse AI'), 'about.html must feature HoloVerse AI');
+
+  // Verify HoloVerse directory exists
+  const holoverseDir = path.join(portfolioDir, '../holoverse-ai');
+  assert(fs.existsSync(path.join(holoverseDir, 'index.html')), 'HoloVerse AI index.html must exist');
+});
+
 console.log('\n========================================');
 console.log(`Sabhyam Portfolio Verification Summary:`);
 console.log(`Passed: ${passedTests} / ${totalTests}`);
