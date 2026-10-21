@@ -77,6 +77,23 @@ body {
   letter-spacing: -0.5px;
 }
 
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  aspect-ratio: 1 / 1;
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.45));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.brand-link:hover .brand-logo {
+  transform: rotate(12deg) scale(1.08);
+  filter: drop-shadow(0 0 16px rgba(0, 240, 255, 0.8));
+}
+
 .brand-badge {
   font-size: 0.75rem;
   background: rgba(0, 240, 255, 0.1);
@@ -297,33 +314,52 @@ body {
 .hero-visual {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1.5rem;
 }
 
 .avatar-halo {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: 280px;
+  height: 280px;
+  min-width: 280px;
+  min-height: 280px;
+  max-width: 280px;
+  max-height: 280px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
   border-radius: 50%;
   padding: 8px;
   background: linear-gradient(135deg, var(--cyan) 0%, var(--purple) 50%, #0284c7 100%);
   box-shadow: 0 0 50px rgba(0, 240, 255, 0.25), 0 0 80px rgba(139, 92, 246, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .avatar-img-wrap {
   width: 100%;
   height: 100%;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
   background: #0f172a;
   border: 4px solid var(--bg-deep);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .avatar-img {
   width: 100%;
   height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
   object-fit: cover;
+  display: block;
 }
 
 .avatar-tag {

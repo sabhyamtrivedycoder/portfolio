@@ -165,6 +165,39 @@ runTest('Portfolio features HoloVerse AI across index, ventures, vision, about, 
   assert(fs.existsSync(path.join(holoverseDir, 'index.html')), 'HoloVerse AI index.html must exist');
 });
 
+// 9. Logo & Circular Profile Picture Verification
+runTest('Portfolio logo and circular profile picture are configured across all pages', () => {
+  const logoPath = path.join(portfolioDir, 'assets/logo.svg');
+  const faviconPath = path.join(portfolioDir, 'favicon.svg');
+  assert(fs.existsSync(logoPath), 'Missing assets/logo.svg');
+  assert(fs.existsSync(faviconPath), 'Missing favicon.svg');
+
+  const logoContent = fs.readFileSync(logoPath, 'utf-8');
+  assert(logoContent.includes('<svg'), 'logo.svg must be valid SVG');
+  assert(logoContent.includes('polygon'), 'logo.svg must include geometric polygon emblem');
+
+  const allPages = [
+    'index.html',
+    'about.html',
+    'ventures.html',
+    'vision.html',
+    'resume.html',
+    'contact.html'
+  ];
+
+  for (const p of allPages) {
+    const pageContent = fs.readFileSync(path.join(portfolioDir, p), 'utf-8');
+    assert(pageContent.includes('assets/logo.svg'), `Missing logo in brand bar of ${p}`);
+    assert(pageContent.includes('favicon.svg'), `Missing favicon in ${p}`);
+  }
+
+  // Verify circular avatar styling in styles.css
+  const stylesCss = fs.readFileSync(path.join(portfolioDir, 'styles.css'), 'utf-8');
+  assert(stylesCss.includes('.avatar-halo'), 'Missing .avatar-halo in styles.css');
+  assert(stylesCss.includes('aspect-ratio: 1 / 1'), 'Avatar must have aspect-ratio 1:1 to guarantee circular shape');
+  assert(stylesCss.includes('border-radius: 50%'), 'Avatar must have border-radius: 50%');
+});
+
 console.log('\n========================================');
 console.log(`Sabhyam Portfolio Verification Summary:`);
 console.log(`Passed: ${passedTests} / ${totalTests}`);
