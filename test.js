@@ -199,22 +199,42 @@ runTest('Portfolio logo and circular profile picture are configured across all p
 });
 
 // 10. Developer Labs & Micro-Tools Ecosystem Verification
-runTest('All 10 Developer Micro-Tools are properly showcased with live websites and GitHub repos', () => {
+runTest('All 30 Developer Micro-Tools are properly showcased with live websites and GitHub repos', () => {
   const venturesHtml = fs.readFileSync(path.join(portfolioDir, 'ventures.html'), 'utf-8');
   const indexHtml = fs.readFileSync(path.join(portfolioDir, 'index.html'), 'utf-8');
 
   const tools = [
-    'algo-canvas',
-    'markdown-studio-pro',
-    'soundscape-synth',
-    'css-glass-mesh-gen',
-    'regex-radar',
-    'qr-vault-pro',
-    'pomodoro-matrix',
-    'color-palette-forge',
-    'json-tree-studio',
-    'speed-reader-sprint'
-  ];
+    "algo-canvas",
+    "markdown-studio-pro",
+    "soundscape-synth",
+    "css-glass-mesh-gen",
+    "regex-radar",
+    "qr-vault-pro",
+    "pomodoro-matrix",
+    "color-palette-forge",
+    "json-tree-studio",
+    "speed-reader-sprint",
+    "diff-checker-pro",
+    "jwt-debugger-offline",
+    "base64-studio",
+    "uuid-hash-generator",
+    "calc-matrix-math",
+    "markdown-table-forge",
+    "css-gradient-mesh-flow",
+    "cron-syntax-explainer",
+    "web-drum-machine",
+    "metronome-tempo-pro",
+    "color-blindness-simulator",
+    "bezier-curve-lab",
+    "canvas-particle-network",
+    "ascii-art-studio",
+    "lorem-ipsum-forge",
+    "unit-converter-pro",
+    "svg-path-visualizer",
+    "morse-code-transmitter",
+    "typing-speed-sprint",
+    "key-code-inspector"
+];
 
   for (const t of tools) {
     const liveUrl = `https://sabhyamtrivedycoder.github.io/${t}/`;
@@ -222,13 +242,12 @@ runTest('All 10 Developer Micro-Tools are properly showcased with live websites 
     assert(venturesHtml.includes(liveUrl), `ventures.html must link to live URL for ${t}`);
     assert(venturesHtml.includes(repoUrl), `ventures.html must link to GitHub repo for ${t}`);
 
-    // Verify local repository exists and has valid index.html
     const localRepoPath = path.join(portfolioDir, '..', t, 'index.html');
     assert(fs.existsSync(localRepoPath), `Local project file not found: ${localRepoPath}`);
   }
 
-  assert(indexHtml.includes('32+ Public Repositories'), 'index.html must highlight 32+ public repositories');
-  assert(venturesHtml.includes('32+ public repositories'), 'ventures.html must highlight 32+ public repositories');
+  assert(indexHtml.includes('52+ Public Repositories'), 'index.html must highlight 52+ public repositories');
+  assert(venturesHtml.includes('52+ public repositories'), 'ventures.html must highlight 52+ public repositories');
 });
 
 console.log('\n========================================');
