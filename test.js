@@ -198,6 +198,39 @@ runTest('Portfolio logo and circular profile picture are configured across all p
   assert(stylesCss.includes('border-radius: 50%'), 'Avatar must have border-radius: 50%');
 });
 
+// 10. Developer Labs & Micro-Tools Ecosystem Verification
+runTest('All 10 Developer Micro-Tools are properly showcased with live websites and GitHub repos', () => {
+  const venturesHtml = fs.readFileSync(path.join(portfolioDir, 'ventures.html'), 'utf-8');
+  const indexHtml = fs.readFileSync(path.join(portfolioDir, 'index.html'), 'utf-8');
+
+  const tools = [
+    'algo-canvas',
+    'markdown-studio-pro',
+    'soundscape-synth',
+    'css-glass-mesh-gen',
+    'regex-radar',
+    'qr-vault-pro',
+    'pomodoro-matrix',
+    'color-palette-forge',
+    'json-tree-studio',
+    'speed-reader-sprint'
+  ];
+
+  for (const t of tools) {
+    const liveUrl = `https://sabhyamtrivedycoder.github.io/${t}/`;
+    const repoUrl = `https://github.com/sabhyamtrivedycoder/${t}`;
+    assert(venturesHtml.includes(liveUrl), `ventures.html must link to live URL for ${t}`);
+    assert(venturesHtml.includes(repoUrl), `ventures.html must link to GitHub repo for ${t}`);
+
+    // Verify local repository exists and has valid index.html
+    const localRepoPath = path.join(portfolioDir, '..', t, 'index.html');
+    assert(fs.existsSync(localRepoPath), `Local project file not found: ${localRepoPath}`);
+  }
+
+  assert(indexHtml.includes('32+ Public Repositories'), 'index.html must highlight 32+ public repositories');
+  assert(venturesHtml.includes('32+ public repositories'), 'ventures.html must highlight 32+ public repositories');
+});
+
 console.log('\n========================================');
 console.log(`Sabhyam Portfolio Verification Summary:`);
 console.log(`Passed: ${passedTests} / ${totalTests}`);
