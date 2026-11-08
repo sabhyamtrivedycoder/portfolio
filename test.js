@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
 
-console.log('🧪 Starting Sabhyam Multi-Page Portfolio Verification Tests...\n');
+console.log('[TEST] Starting Sabhyam Multi-Page Portfolio Verification Tests...\n');
 
 let passedTests = 0;
 let totalTests = 0;
@@ -17,10 +17,10 @@ function runTest(name, fn) {
   totalTests++;
   try {
     fn();
-    console.log(`  ✅ PASS: ${name}`);
+    console.log(`  [PASS] ${name}`);
     passedTests++;
   } catch (err) {
-    console.error(`  ❌ FAIL: ${name}`);
+    console.error(`  [FAIL] ${name}`);
     console.error(`     Error: ${err.message}`);
     process.exitCode = 1;
   }
@@ -256,7 +256,7 @@ console.log(`Passed: ${passedTests} / ${totalTests}`);
 console.log('========================================\n');
 
 if (passedTests === totalTests) {
-  console.log('🎉 All Portfolio verification checks passed with 100% compliance!\n');
+  console.log('[SUCCESS] All Portfolio verification checks passed with 100% compliance!\n');
 } else {
   process.exit(1);
 }
