@@ -1,26 +1,25 @@
 /* ==========================================================================
-   Sabhyam Trivedy - 3D Immersive Portfolio
-   Identical Aesthetic & Atmosphere to ayushdhibardesigns.framer.website
-   Dreamy Sky Gradients, Floating Hot Air Balloon, 3D Clouds,
-   Skeuomorphic Retro Pocket Consoles, 3D Bookshelf & Meadow Horizon.
+   Sabhaym Trivedy - 3D Immersive Portfolio
+   Hyper-realistic 3D Atmosphere, Mouse Parallax, Skeuomorphic Hardware,
+   and 3D Physical Bookcases.
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  /* Dreamy Sky & Atmosphere Palette */
-  --sky-blue-top: #3b74f6;
-  --sky-blue-mid: #5b87f8;
-  --sky-periwinkle: #8b7ef3;
-  --sky-lavender: #b09ff0;
-  --sky-lilac: #c8bbf7;
-  --sky-bottom: #ddd3fa;
+  /* True Dreamscape Palette */
+  --sky-azure: #2b56e2;
+  --sky-royal: #4f72ea;
+  --sky-indigo: #7262d9;
+  --sky-violet: #957bdc;
+  --sky-lavender: #b69ee3;
+  --sky-periwinkle: #d2c0ec;
+  --sky-blush: #e5daf5;
 
   /* Text & Elements */
   --text-white: #ffffff;
-  --text-deep-purple: #231b42;
+  --text-deep-purple: #1f183d;
   --text-purple-muted: #4e4472;
-  --text-caption: #5a507e;
 
   /* Typography */
   --font-display: 'Fraunces', Georgia, serif;
@@ -29,7 +28,6 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* Base Reset */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -42,12 +40,13 @@ html {
 
 body {
   background: linear-gradient(180deg, 
-    var(--sky-blue-top) 0%, 
-    var(--sky-blue-mid) 12%, 
-    var(--sky-periwinkle) 28%, 
-    var(--sky-lavender) 48%, 
-    var(--sky-lilac) 72%, 
-    var(--sky-bottom) 100%
+    var(--sky-azure) 0%, 
+    var(--sky-royal) 14%, 
+    var(--sky-indigo) 28%, 
+    var(--sky-violet) 48%, 
+    var(--sky-lavender) 68%, 
+    var(--sky-periwinkle) 85%, 
+    var(--sky-blush) 100%
   );
   color: var(--text-deep-purple);
   font-family: var(--font-sans);
@@ -70,7 +69,7 @@ a {
 }
 
 /* ==========================================================================
-   Floating Ambient 3D Clouds & Drifting Hot Air Balloon
+   3D Parallax Sky Atmosphere
    ========================================================================== */
 .sky-atmosphere {
   position: absolute;
@@ -82,88 +81,73 @@ a {
 
 .floating-balloon {
   position: fixed;
-  top: 140px;
-  left: 8%;
-  width: 95px;
+  top: 100px;
+  left: 9%;
+  width: 105px;
   height: auto;
-  z-index: 5;
-  filter: drop-shadow(0 15px 25px rgba(35, 27, 66, 0.25));
-  animation: balloonBob 6s infinite ease-in-out alternate;
+  z-index: 8;
+  filter: drop-shadow(0 20px 30px rgba(31, 24, 61, 0.35));
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
   pointer-events: none;
-}
-
-@keyframes balloonBob {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-16px) rotate(1.5deg); }
-  100% { transform: translateY(6px) rotate(-1deg); }
 }
 
 .cloud-layer {
   position: absolute;
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 0.82;
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, #000 65%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, #000 65%, transparent 100%);
+  will-change: transform;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cloud-hero-right {
-  top: 60px;
-  right: -50px;
-  width: 480px;
-  animation: cloudDriftSlow 32s infinite alternate ease-in-out;
+  top: 40px;
+  right: -60px;
+  width: 520px;
 }
 
 .cloud-hero-left {
-  top: 360px;
-  left: -80px;
-  width: 520px;
-  opacity: 0.75;
-  animation: cloudDriftReverse 38s infinite alternate ease-in-out;
+  top: 340px;
+  left: -90px;
+  width: 560px;
+  opacity: 0.72;
 }
 
 .cloud-mid-right {
-  top: 1200px;
-  right: -60px;
-  width: 560px;
+  top: 1150px;
+  right: -70px;
+  width: 600px;
   opacity: 0.65;
 }
 
 .cloud-books-left {
-  top: 2200px;
-  left: -40px;
-  width: 500px;
+  top: 2100px;
+  left: -50px;
+  width: 540px;
   opacity: 0.7;
 }
 
-@keyframes cloudDriftSlow {
-  0% { transform: translateX(0px) translateY(0px); }
-  100% { transform: translateX(40px) translateY(-15px); }
-}
-
-@keyframes cloudDriftReverse {
-  0% { transform: translateX(0px) translateY(0px); }
-  100% { transform: translateX(-35px) translateY(20px); }
-}
-
-/* ==========================================================================
-   Bottom-Left Floating Navigation Dock (Exact Ayush Dhibar Framer Style)
-   ========================================================================== */
+/* Floating Navigation */
 .floating-nav-corner {
   position: fixed;
-  bottom: 2.25rem;
-  left: 2.25rem;
+  bottom: 2rem;
+  left: 2rem;
   z-index: 999;
 }
 
 .nav-menu-card {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  background: rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   padding: 0.85rem 1.25rem;
-  border-radius: 18px;
-  box-shadow: 0 15px 35px rgba(35, 27, 66, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 16px 36px rgba(31, 24, 61, 0.18);
 }
 
 .nav-menu-card a {
@@ -171,18 +155,18 @@ a {
   font-size: 1.05rem;
   font-weight: 500;
   color: var(--text-white);
-  text-shadow: 0 1px 3px rgba(35, 27, 66, 0.35);
-  transition: all 0.2s ease;
+  text-shadow: 0 1px 3px rgba(31, 24, 61, 0.4);
+  transition: transform 0.2s ease, text-shadow 0.2s ease;
 }
 
 .nav-menu-card a:hover {
   transform: translateX(4px);
   color: #fff;
-  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.7);
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
 }
 
 /* ==========================================================================
-   Hero Section ("Hi, I'm Sabhyam")
+   Hero Section: 3D Typography & Interactive Mascot
    ========================================================================== */
 .hero-section {
   position: relative;
@@ -193,7 +177,8 @@ a {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 6.5rem 1.5rem 3rem 1.5rem;
+  padding: 6.5rem 1.5rem 2.5rem 1.5rem;
+  perspective: 1200px;
 }
 
 .hero-intro-pill {
@@ -202,31 +187,33 @@ a {
   font-weight: 400;
   font-style: italic;
   color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 2px 10px rgba(35, 27, 66, 0.2);
-  margin-bottom: 0.2rem;
+  text-shadow: 0 2px 12px rgba(31, 24, 61, 0.25);
+  margin-bottom: 0.1rem;
 }
 
 .hero-name-sculpted {
   font-family: var(--font-display);
-  font-size: clamp(4.5rem, 11vw, 8.8rem);
+  font-size: clamp(4.8rem, 12vw, 9.2rem);
   font-weight: 600;
   letter-spacing: -0.04em;
   line-height: 0.95;
   color: #ffffff;
   text-shadow: 
-    0 15px 45px rgba(35, 27, 66, 0.25),
-    0 2px 4px rgba(255, 255, 255, 0.6);
+    0 18px 50px rgba(31, 24, 61, 0.35),
+    0 3px 6px rgba(255, 255, 255, 0.8);
   margin-bottom: 1.5rem;
+  transform: translateZ(25px);
+  will-change: transform;
 }
 
 .hero-tagline-editorial {
-  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
   color: #ffffff;
-  max-width: 740px;
-  line-height: 1.55;
-  text-shadow: 0 2px 8px rgba(35, 27, 66, 0.25);
+  max-width: 760px;
+  line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(31, 24, 61, 0.3);
   font-weight: 400;
-  margin: 0 auto 2.5rem auto;
+  margin: 0 auto 2rem auto;
 }
 
 .hero-tagline-editorial strong {
@@ -234,21 +221,22 @@ a {
   color: #ffffff;
 }
 
-/* Hero Mascot Bubble */
+/* Mascot Stage Dock */
 .hero-mascot-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 /* ==========================================================================
-   Who am I? Section with Overlapping Tilted Polaroids
+   Who am I? Section with 3D Physics Polaroids
    ========================================================================== */
 .whoami-section {
   position: relative;
   z-index: 2;
   padding: 6rem 0;
+  perspective: 1400px;
 }
 
 .whoami-grid {
@@ -271,14 +259,14 @@ a {
   letter-spacing: -0.02em;
   color: #ffffff;
   line-height: 1.1;
-  text-shadow: 0 4px 15px rgba(35, 27, 66, 0.2);
+  text-shadow: 0 4px 15px rgba(31, 24, 61, 0.25);
 }
 
 .whoami-copy {
   font-size: 1.15rem;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 1px 4px rgba(35, 27, 66, 0.2);
+  text-shadow: 0 1px 4px rgba(31, 24, 61, 0.2);
 }
 
 .whoami-link {
@@ -292,7 +280,7 @@ a {
   border-bottom: 2px solid rgba(255, 255, 255, 0.7);
   padding-bottom: 2px;
   margin-top: 0.5rem;
-  text-shadow: 0 1px 3px rgba(35, 27, 66, 0.2);
+  text-shadow: 0 1px 3px rgba(31, 24, 61, 0.2);
 }
 
 .whoami-link:hover {
@@ -300,11 +288,12 @@ a {
   transform: translateX(4px);
 }
 
-/* Polaroids Presentation */
+/* 3D Polaroids Display */
 .polaroids-display {
   position: relative;
   width: 100%;
-  height: 380px;
+  height: 390px;
+  perspective: 1000px;
 }
 
 .polaroid-frame {
@@ -313,16 +302,17 @@ a {
   padding: 10px 10px 28px 10px;
   border-radius: 4px;
   box-shadow: 
-    0 15px 35px rgba(35, 27, 66, 0.22),
+    0 20px 45px rgba(31, 24, 61, 0.25),
     0 2px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.2s ease, box-shadow 0.35s ease;
   cursor: pointer;
+  transform-style: preserve-3d;
 }
 
 .polaroid-frame:hover {
-  transform: scale(1.08) rotate(0deg) !important;
-  z-index: 20 !important;
-  box-shadow: 0 25px 50px rgba(35, 27, 66, 0.35);
+  transform: scale3d(1.1, 1.1, 1.1) rotate(0deg) !important;
+  z-index: 25 !important;
+  box-shadow: 0 30px 65px rgba(31, 24, 61, 0.4);
 }
 
 .polaroid-frame img {
@@ -336,36 +326,36 @@ a {
 .polaroid-photo-1 {
   top: 0px;
   left: 40px;
-  width: 210px;
-  height: 250px;
-  transform: rotate(-5deg);
+  width: 215px;
+  height: 255px;
+  transform: rotate(-6deg) translateZ(10px);
   z-index: 2;
 }
-.polaroid-photo-1 .img-crop { height: 190px; }
+.polaroid-photo-1 .img-crop { height: 195px; }
 
 .polaroid-photo-2 {
-  top: 50px;
-  right: 30px;
-  width: 220px;
-  height: 260px;
-  transform: rotate(6deg);
+  top: 45px;
+  right: 25px;
+  width: 225px;
+  height: 265px;
+  transform: rotate(7deg) translateZ(20px);
   z-index: 3;
 }
-.polaroid-photo-2 .img-crop { height: 200px; }
+.polaroid-photo-2 .img-crop { height: 205px; }
 
 .polaroid-photo-3 {
   bottom: 0px;
-  left: 120px;
-  width: 200px;
-  height: 240px;
-  transform: rotate(-2deg);
+  left: 115px;
+  width: 205px;
+  height: 245px;
+  transform: rotate(-2deg) translateZ(30px);
   z-index: 4;
 }
-.polaroid-photo-3 .img-crop { height: 180px; }
+.polaroid-photo-3 .img-crop { height: 185px; }
 
 .polaroid-label {
   font-family: var(--font-hand);
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   color: #2b244d;
   text-align: center;
   margin-top: 6px;
@@ -374,13 +364,13 @@ a {
 }
 
 /* ==========================================================================
-   Works Section: Authentic Retro-Gadget Handheld Pocket Consoles
-   (Exact Ayush Dhibar Framer Component from step_36.png)
+   Works Section: Heavy 3D Tactile Retro Pocket Consoles
    ========================================================================== */
 .works-section {
   position: relative;
   z-index: 2;
   padding: 6rem 0;
+  perspective: 1400px;
 }
 
 .works-header {
@@ -397,30 +387,30 @@ a {
   margin: 0 auto;
 }
 
-/* Pocket Console Chassis */
 .pocket-console-chassis {
   position: relative;
   background: #eae7e1;
-  border-radius: 44px;
+  border-radius: 46px;
   padding: 1.8rem 2.2rem;
   box-shadow: 
-    0 30px 60px rgba(35, 27, 66, 0.2),
-    inset 0 3px 2px rgba(255, 255, 255, 0.9),
-    inset 0 -4px 6px rgba(0, 0, 0, 0.15);
+    0 35px 75px -10px rgba(31, 24, 61, 0.35),
+    0 10px 20px rgba(0, 0, 0, 0.1),
+    inset 0 3px 2px rgba(255, 255, 255, 0.95),
+    inset 0 -5px 8px rgba(0, 0, 0, 0.18);
   border: 4px solid #f6f4f0;
   display: grid;
   grid-template-columns: 1.25fr 0.95fr;
   gap: 2rem;
   align-items: center;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  transform-style: preserve-3d;
 }
 
 .pocket-console-chassis:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 40px 80px rgba(35, 27, 66, 0.28);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 45px 95px -10px rgba(31, 24, 61, 0.45);
 }
 
-/* Left: OLED Display Window */
 .console-oled-window {
   position: relative;
   border-radius: 28px;
@@ -428,8 +418,8 @@ a {
   overflow: hidden;
   height: 240px;
   box-shadow: 
-    inset 0 4px 10px rgba(0, 0, 0, 0.7),
-    0 2px 4px rgba(255, 255, 255, 0.8);
+    inset 0 6px 14px rgba(0, 0, 0, 0.8),
+    0 3px 5px rgba(255, 255, 255, 0.9);
   border: 6px solid #d4cfc6;
 }
 
@@ -440,7 +430,6 @@ a {
   display: block;
 }
 
-/* Right: Case Study Info Deck & Hardware Controls */
 .console-control-deck {
   display: flex;
   flex-direction: column;
@@ -451,9 +440,11 @@ a {
 
 .console-study-card {
   background: #1c1a24;
-  border-radius: 20px;
-  padding: 1.25rem 1.4rem;
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.8);
+  border-radius: 22px;
+  padding: 1.3rem 1.45rem;
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.85),
+    0 4px 10px rgba(0, 0, 0, 0.15);
   border: 2px solid #2e2b3b;
   color: #fff;
 }
@@ -484,7 +475,7 @@ a {
   line-height: 1.5;
 }
 
-/* Hardware Physical Controls: Dial + 2 Round Buttons */
+/* Hardware Physical Controls */
 .console-hardware-row {
   display: flex;
   justify-content: space-between;
@@ -494,52 +485,52 @@ a {
 }
 
 .console-textured-dial {
-  width: 52px;
-  height: 52px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #4a4556 0%, #23202b 80%);
   box-shadow: 
-    0 6px 12px rgba(0, 0, 0, 0.35),
-    inset 0 2px 2px rgba(255, 255, 255, 0.4),
-    inset 0 -3px 4px rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+    0 8px 16px rgba(0, 0, 0, 0.4),
+    inset 0 2px 3px rgba(255, 255, 255, 0.45),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   position: relative;
 }
 
 .console-textured-dial::after {
   content: '';
   position: absolute;
-  top: 8px;
-  left: 23px;
+  top: 9px;
+  left: 24px;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: #ffffff;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .console-action-buttons {
   display: flex;
-  gap: 0.85rem;
+  gap: 0.95rem;
 }
 
 .tactile-grey-button {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: linear-gradient(180deg, #6c667a 0%, #443f50 100%);
   box-shadow: 
-    0 5px 10px rgba(0, 0, 0, 0.3),
+    0 6px 12px rgba(0, 0, 0, 0.35),
     inset 0 1px 2px rgba(255, 255, 255, 0.4),
-    inset 0 -2px 3px rgba(0, 0, 0, 0.7);
+    inset 0 -2px 4px rgba(0, 0, 0, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.15);
   cursor: pointer;
-  transition: transform 0.1s ease;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
 .tactile-grey-button:active {
   transform: translateY(2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .console-project-link {
@@ -557,40 +548,42 @@ a {
 }
 
 /* ==========================================================================
-   Wisdom That Shaped Me: 3D Hardcover Bookshelf
-   (Exact 3D Book Transforms from Ayush Dhibar Framer Site step_20.png)
+   Wisdom That Shaped Me: True 3D Standing Hardcover Bookshelf
    ========================================================================== */
 .bookshelf-section {
   position: relative;
   z-index: 2;
   padding: 6rem 0;
+  perspective: 1600px;
 }
 
 .books-3d-stage {
   position: relative;
-  max-width: 980px;
+  max-width: 1040px;
   margin: 0 auto;
-  perspective: 1400px;
-  padding: 40px 0;
+  padding: 40px 0 20px 0;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 1.75rem;
+  gap: 2rem;
+  transform-style: preserve-3d;
 }
 
-/* 3D Book Element */
+/* 3D Physical Book */
 .book-3d-wrapper {
   position: relative;
   width: 175px;
-  height: 250px;
+  height: 255px;
   transform-style: preserve-3d;
   cursor: pointer;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+  filter: drop-shadow(0 20px 30px rgba(31, 24, 61, 0.35));
 }
 
 .book-3d-wrapper:hover {
-  transform: translateY(-24px) scale(1.05);
+  transform: translateY(-26px) scale3d(1.06, 1.06, 1.06);
   z-index: 30;
+  filter: drop-shadow(0 30px 45px rgba(31, 24, 61, 0.5));
 }
 
 /* Spine Face */
@@ -599,13 +592,13 @@ a {
   top: 0;
   left: 0;
   width: 44px;
-  height: 250px;
+  height: 255px;
   border-radius: 4px 0 0 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 
-    -8px 12px 25px rgba(35, 27, 66, 0.35),
+    -8px 12px 25px rgba(31, 24, 61, 0.35),
     inset -2px 0 5px rgba(0, 0, 0, 0.4);
   z-index: 2;
 }
@@ -620,22 +613,22 @@ a {
   text-orientation: mixed;
   user-select: none;
   white-space: nowrap;
-  max-height: 220px;
+  max-height: 225px;
 }
 
-/* Cover Face (Rotated in 3D Space) */
+/* Cover Face */
 .book-cover-face {
   position: absolute;
   top: 0;
   left: 44px;
   width: 165px;
-  height: 250px;
+  height: 255px;
   transform-origin: left;
   transform: rotateY(81deg);
   border-radius: 0 4px 4px 0;
   overflow: hidden;
   box-shadow: 
-    10px 15px 30px rgba(35, 27, 66, 0.3),
+    10px 15px 30px rgba(31, 24, 61, 0.3),
     inset 0 0 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1;
@@ -652,7 +645,6 @@ a {
   display: block;
 }
 
-/* Book Cover Crease Specular Highlight */
 .book-spine-crease {
   position: absolute;
   top: 0;
@@ -665,38 +657,33 @@ a {
 }
 
 /* Individual Book Themes */
-/* Book 1: Steve Jobs (White & Black Cover) */
 .book-steve-jobs .book-spine-face {
   background: #f8fafc;
   color: #0f172a;
 }
 
-/* Book 2: Zero to One (Yellow & Black Cover) */
 .book-zero-to-one .book-spine-face {
   background: #f59e0b;
   color: #0f172a;
 }
 
-/* Book 3: Build Don't Talk (Black & Yellow Cover) */
 .book-build-dont-talk .book-spine-face {
   background: #18181b;
   color: #fde047;
 }
 
-/* Book 4: The Mom Test (Red Cover) */
 .book-mom-test .book-spine-face {
   background: #dc2626;
   color: #ffffff;
 }
 
-/* Book 5: Refactoring UI (Navy Blue Cover) */
 .book-refactoring-ui .book-spine-face {
   background: #0f172a;
   color: #38bdf8;
 }
 
 /* ==========================================================================
-   Journey So Far: Milestone Trail
+   Milestone Timeline
    ========================================================================== */
 .journey-section {
   position: relative;
@@ -735,8 +722,8 @@ a {
   height: 18px;
   border-radius: 50%;
   background: #ffffff;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
-  border: 3px solid var(--sky-periwinkle);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.9);
+  border: 3px solid var(--sky-indigo);
 }
 
 .milestone-year {
@@ -744,7 +731,7 @@ a {
   font-size: 0.78rem;
   font-weight: 700;
   color: #ffffff;
-  text-shadow: 0 1px 3px rgba(35, 27, 66, 0.3);
+  text-shadow: 0 1px 3px rgba(31, 24, 61, 0.3);
   display: block;
   margin-bottom: 0.3rem;
 }
@@ -753,7 +740,7 @@ a {
   font-family: var(--font-display);
   font-size: 1.4rem;
   color: #ffffff;
-  text-shadow: 0 2px 6px rgba(35, 27, 66, 0.25);
+  text-shadow: 0 2px 6px rgba(31, 24, 61, 0.25);
   margin-bottom: 0.4rem;
 }
 
@@ -765,7 +752,6 @@ a {
 
 /* ==========================================================================
    Artisanal Meadow Horizon Footer
-   (Exact Ayush Dhibar Framer Component from step_30.png)
    ========================================================================== */
 .meadow-footer-stage {
   position: relative;
@@ -781,11 +767,10 @@ a {
   font-size: clamp(2.4rem, 4.8vw, 3.8rem);
   font-weight: 500;
   color: #ffffff;
-  text-shadow: 0 4px 15px rgba(35, 27, 66, 0.25);
+  text-shadow: 0 4px 15px rgba(31, 24, 61, 0.25);
   margin-bottom: 2rem;
 }
 
-/* Giant "Send a Mail" Pill Button */
 .btn-mail-large {
   display: inline-flex;
   align-items: center;
@@ -794,10 +779,10 @@ a {
   color: #ffffff;
   font-family: var(--font-display);
   font-size: 1.55rem;
-  padding: 1rem 3rem;
+  padding: 1rem 3.2rem;
   border-radius: 9999px;
   box-shadow: 
-    0 15px 35px rgba(0, 0, 0, 0.3),
+    0 16px 36px rgba(0, 0, 0, 0.35),
     0 0 20px rgba(255, 255, 255, 0.2);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   margin-bottom: 1.25rem;
@@ -805,16 +790,17 @@ a {
 
 .btn-mail-large:hover {
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.45);
   color: #ffffff;
 }
 
 .footer-email-text {
   font-family: var(--font-sans);
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 3.5rem;
   display: block;
+  font-weight: 500;
 }
 
 /* Wildflower Grass & Meadow Artwork */
@@ -823,7 +809,7 @@ a {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  min-height: 240px;
+  min-height: 250px;
 }
 
 .meadow-middle-land {
@@ -846,7 +832,23 @@ a {
   pointer-events: none;
 }
 
-/* 3D Glossy App Icons Nestled in the Meadow */
+.meadow-butterflies {
+  position: absolute;
+  top: 15px;
+  left: 20%;
+  width: 60px;
+  z-index: 5;
+  animation: butterflyFlutter 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes butterflyFlutter {
+  0% { transform: translateY(0px) rotate(0deg) scale(1); }
+  50% { transform: translateY(-15px) rotate(4deg) scale(1.05); }
+  100% { transform: translateY(0px) rotate(-3deg) scale(0.98); }
+}
+
+/* 3D Glossy App Icons */
 .meadow-social-icons {
   position: relative;
   z-index: 3;
@@ -865,7 +867,7 @@ a {
   align-items: center;
   justify-content: center;
   box-shadow: 
-    0 12px 24px rgba(35, 27, 66, 0.25),
+    0 14px 28px rgba(31, 24, 61, 0.28),
     inset 0 1px 2px rgba(255, 255, 255, 0.8);
   transition: transform 0.25s ease;
   overflow: hidden;
@@ -882,8 +884,8 @@ a {
 .footer-legal {
   position: relative;
   z-index: 10;
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
   padding-top: 1.5rem;
 }
 
@@ -892,7 +894,7 @@ a {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(35, 27, 66, 0.65);
+  background: rgba(31, 24, 61, 0.65);
   backdrop-filter: blur(16px);
   z-index: 10000;
   align-items: center;

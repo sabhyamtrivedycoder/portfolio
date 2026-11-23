@@ -1,16 +1,65 @@
 /**
- * Sabhyam Trivedy - 3D Immersive Portfolio Engine
- * Interactive 3D Book Inspector & Mascot Initializer
+ * Sabhaym Trivedy - 3D Immersive Portfolio Engine
+ * Dynamic 3D Cursor Parallax, Interactive 3D Card Tilt,
+ * and Physical Book Inspector.
  */
 
 (function() {
   'use strict';
 
+  // --- Dynamic 3D Mouse Parallax Engine ---
+  const balloon = document.querySelector('.floating-balloon');
+  const cloudRight = document.querySelector('.cloud-hero-right');
+  const cloudLeft = document.querySelector('.cloud-hero-left');
+  const heroTitle = document.querySelector('.hero-name-sculpted');
+
+  window.addEventListener('mousemove', (e) => {
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    const dx = (e.clientX - cx) / cx;
+    const dy = (e.clientY - cy) / cy;
+
+    if (balloon) {
+      balloon.style.transform = `translate3d(${dx * 35}px, ${dy * 30}px, 0) rotate(${dx * 4}deg)`;
+    }
+    if (cloudRight) {
+      cloudRight.style.transform = `translate3d(${dx * -25}px, ${dy * -18}px, 0)`;
+    }
+    if (cloudLeft) {
+      cloudLeft.style.transform = `translate3d(${dx * 20}px, ${dy * 15}px, 0)`;
+    }
+    if (heroTitle) {
+      heroTitle.style.transform = `perspective(1000px) rotateY(${dx * 6}deg) rotateX(${-dy * 6}deg) translateZ(25px)`;
+    }
+  });
+
+  // --- Interactive 3D Card Tilt ---
+  function apply3DTilt(element, maxAngle = 12) {
+    element.addEventListener('mousemove', (e) => {
+      const rect = element.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const xPct = (x / rect.width - 0.5) * 2;
+      const yPct = (y / rect.height - 0.5) * 2;
+
+      element.style.transform = `perspective(800px) rotateY(${xPct * maxAngle}deg) rotateX(${-yPct * maxAngle}deg) scale3d(1.03, 1.03, 1.03)`;
+    });
+
+    element.addEventListener('mouseleave', () => {
+      element.style.transform = '';
+    });
+  }
+
+  // Apply tilt to consoles & polaroids
+  document.querySelectorAll('.pocket-console-chassis').forEach(el => apply3DTilt(el, 8));
+  document.querySelectorAll('.polaroid-frame').forEach(el => apply3DTilt(el, 14));
+
+  // --- Book Details Matrix ---
   const bookData = {
     'steve-jobs': {
       title: 'Steve Jobs',
       author: 'WALTER ISAACSON',
-      insight: 'The intersection of technology and liberal arts. Relentless focus on end-to-end integration of hardware, software, and pure aesthetic simplicity.'
+      insight: 'The intersection of technology and the liberal arts. Relentless focus on end-to-end integration of hardware, software, and pure aesthetic simplicity.'
     },
     'zero-to-one': {
       title: 'Zero to One: Notes on Startups',
