@@ -1,111 +1,170 @@
 /**
- * Sabhyam Trivedy - Flagship Portfolio Application Script
- * Interactive filtering, demo modal previews, smooth navigation, and dynamic telemetry.
- * Author: Sabhyam Trivedy
+ * Sabhyam Trivedy - Flagship Portfolio Interactive Engine
+ * Tactile Skeuomorphism, Ambient Audio Synthesizer, Real-time Clock,
+ * and Mascot Controller.
  */
 
-(function () {
-  // Filter Buttons
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cvCards = document.querySelectorAll('.cv-card');
+(function initPortfolio() {
+  'use strict';
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  // --- Real-time IST Clock for Floating Dock ---
+  function updateDockClock() {
+    const clockEl = document.getElementById('dock-clock');
+    if (!clockEl) return;
+    const now = new Date();
+    // Format in IST (UTC+5:30)
+    const options = {
+      timeZone: 'Asia/Kolkata',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    };
+    clockEl.textContent = new Intl.DateTimeFormat('en-GB', options).format(now) + ' IST';
+  }
+  setInterval(updateDockClock, 1000);
+  updateDockClock();
 
-      const filter = btn.getAttribute('data-filter');
+  // --- Ambient Web Audio Flow Synthesizer (William Le Inspired) ---
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  let audioCtx = null;
+  let isPlaying = false;
+  let masterGain = null;
+  let oscNodes = [];
 
-      cvCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filter === 'all' || category === filter) {
-          card.style.display = 'flex';
-          card.style.animation = 'fadeIn 0.4s ease';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+  function initAudioEngine() {
+    if (audioCtx) return;
+    audioCtx = new AudioContext();
+    masterGain = audioCtx.createGain();
+    masterGain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+    masterGain.connect(audioCtx.destination);
+  }
+
+  function startAmbientFrequencies() {
+    initAudioEngine();
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+
+    // Generate warm 432Hz ambient chord (C# minor / deep flow frequencies)
+    const freqs = [108, 162, 216, 324];
+    oscNodes = freqs.map((freq, i) => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = i % 2 === 0 ? 'sine' : 'triangle';
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+      gain.gain.setValueAtTime(0.015 / (i + 1), audioCtx.currentTime);
+      osc.connect(gain);
+      gain.connect(masterGain);
+      osc.start();
+      return { osc, gain };
     });
-  });
 
-  // Demo Modal System
-  const modalOverlay = document.getElementById('demo-modal');
-  const modalTitle = document.getElementById('modal-title');
-  const modalIframe = document.getElementById('modal-iframe');
-  const modalClose = document.getElementById('modal-close');
-  const modalDirectLink = document.getElementById('modal-direct-link');
+    isPlaying = true;
+    updateSoundCapsuleUI();
+  }
 
-  const demoMap = {
-    'anime': {
-      title: 'Anime Gesture Attacks (MediaPipe Hands & Web Audio FX)',
-      path: '../anime-gesture-attacks/index.html'
+  function stopAmbientFrequencies() {
+    if (!audioCtx) return;
+    oscNodes.forEach(({ osc }) => {
+      try {
+        osc.stop();
+        osc.disconnect();
+      } catch (e) {}
+    });
+    oscNodes = [];
+    isPlaying = false;
+    updateSoundCapsuleUI();
+  }
+
+  function toggleSound() {
+    if (isPlaying) {
+      stopAmbientFrequencies();
+    } else {
+      startAmbientFrequencies();
+    }
+  }
+
+  function updateSoundCapsuleUI() {
+    const capsule = document.getElementById('sound-capsule');
+    const label = document.getElementById('sound-label');
+    if (!capsule || !label) return;
+
+    if (isPlaying) {
+      capsule.classList.remove('paused');
+      label.textContent = 'Flow Synth • Playing';
+    } else {
+      capsule.classList.add('paused');
+      label.textContent = 'Ambient Flow • Sound On';
+    }
+  }
+
+  const soundBtn = document.getElementById('sound-capsule');
+  if (soundBtn) {
+    soundBtn.addEventListener('click', toggleSound);
+  }
+
+  // --- Interactive Bookshelf Reader Modal / Detail ---
+  const bookNotes = {
+    'sicp': {
+      title: 'Structure and Interpretation of Computer Programs',
+      author: 'Harold Abelson & Gerald Jay Sussman',
+      insight: 'Taught me that programs must be written for people to read, and only incidentally for machines to execute. Mastered recursive process decomposition and meta-linguistic abstraction.'
     },
-    'fitness': {
-      title: 'CV Fitness Rep Counter (MediaPipe Pose Biomechanics)',
-      path: '../cv-fitness-rep-counter/index.html'
+    'everyday': {
+      title: 'The Design of Everyday Things',
+      author: 'Don Norman',
+      insight: 'Affordances, signifiers, and mental models. Every software system I architect is built with intuitive feedback loops and tactile clarity.'
     },
-    'cardio': {
-      title: 'CardioVision Pulse Monitor (rPPG & DSP Engine)',
-      path: '../cardiovision-pulse-monitor/index.html'
+    'deep-learning': {
+      title: 'Deep Learning',
+      author: 'Ian Goodfellow, Yoshua Bengio, Aaron Courville',
+      insight: 'The mathematical bedrock behind neural network backpropagation, representation learning, and real-time computer vision DSP pipelines.'
     },
-    'hud': {
-      title: 'God\'s Eye AR HUD (Tactical Scene Analyzer & 360° Radar)',
-      path: '../gods-eye-vision-hud/index.html'
+    'zero-to-one': {
+      title: 'Zero to One',
+      author: 'Peter Thiel',
+      insight: 'Building proprietary technology that is 10x better than existing alternatives. The operational catalyst behind founding HoloVerse AI and Spark2Ship.'
+    },
+    'crafting-interpreters': {
+      title: 'Crafting Interpreters',
+      author: 'Robert Nystrom',
+      insight: 'Architecting bytecode virtual machines, AST evaluation, and lexical parsers from scratch in C and Java.'
     }
   };
 
-  document.querySelectorAll('[data-demo]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const demoKey = btn.getAttribute('data-demo');
-      const info = demoMap[demoKey];
-      if (info) {
-        modalTitle.textContent = info.title;
-        modalIframe.src = info.path;
-        modalDirectLink.href = info.path;
-        modalOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    });
+  window.inspectBook = function(bookId) {
+    const data = bookNotes[bookId];
+    if (!data) return;
+
+    const overlay = document.getElementById('book-inspect-modal');
+    const titleEl = document.getElementById('modal-book-title');
+    const authorEl = document.getElementById('modal-book-author');
+    const insightEl = document.getElementById('modal-book-insight');
+
+    if (overlay && titleEl && authorEl && insightEl) {
+      titleEl.textContent = data.title;
+      authorEl.textContent = 'BY ' + data.author.toUpperCase();
+      insightEl.textContent = data.insight;
+      overlay.style.display = 'flex';
+    }
+  };
+
+  window.closeBookModal = function() {
+    const overlay = document.getElementById('book-inspect-modal');
+    if (overlay) overlay.style.display = 'none';
+  };
+
+  // --- Initialize Cursor-Tracking Mascot ---
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof window.createSabhyamMascot === 'function') {
+      window.createSabhyamMascot('sabhyam-mascot-dock', {
+        size: 155,
+        directions: 'assets/mascots/sabhyam-directions.webp',
+        reactions: 'assets/mascots/sabhyam-reactions.webp'
+      });
+    }
   });
 
-  function closeModal() {
-    modalOverlay.classList.remove('active');
-    modalIframe.src = 'about:blank';
-    document.body.style.overflow = 'auto';
-  }
-
-  modalClose.addEventListener('click', closeModal);
-  modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) closeModal();
-  });
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
-
-  // Contact Form Handling
-  const contactForm = document.getElementById('contact-form');
-  const formStatus = document.getElementById('form-status');
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('form-name').value;
-      const email = document.getElementById('form-email').value;
-      const msg = document.getElementById('form-msg').value;
-
-      if (!name || !email || !msg) {
-        formStatus.textContent = 'Please fill out all fields.';
-        formStatus.style.color = '#ff3b30';
-        return;
-      }
-
-      formStatus.textContent = `Thank you, ${name}! Your transmission has been queued for Sabhyam.`;
-      formStatus.style.color = '#34d399';
-      contactForm.reset();
-      setTimeout(() => {
-        formStatus.textContent = '';
-      }, 5000);
-    });
-  }
 })();
