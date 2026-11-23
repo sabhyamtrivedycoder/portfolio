@@ -1,76 +1,51 @@
-# 🚀 Sabhyam Trivedy - Flagship Developer Portfolio
+# Sabhaym Trivedi - Flagship 3D Immersive Portfolio
 
-The official flagship portfolio of **Sabhyam Trivedy** — 14-year-old software engineer, startup founder, and computer vision innovator based in Rajdhanwar, Jharkhand.
+The official flagship 3D portfolio of **Sabhaym Trivedi** — 14-year-old software engineer, startup founder, and systems builder.
 
-**Live Domain:** [sabhyamai.in](https://sabhyamai.in)  
-**GitHub:** [github.com/sabhyamtrivedycoder](https://https://github.com/sabhyamtrivedycoder)  
-**Founder:** Spark2Ship & sabhyamai.in  
-**Contact:** sabhyamtrivedy@gmail.com | +91 9113427386
-
----
-
-## 🌟 Featured Innovations
-
-### 1. Flagship Ventures
-- **Spark2Ship**: AI Prototype-to-Production Startup Acceleration Studio. Directing system architecture, rapid development pipelines, and production workflows.
-- **sabhyamai.in**: Production platform hosting intelligent web utilities, automated services, and responsive frontend experiences.
-
-### 2. The 4 Showstopper Computer Vision Systems
-1. **Anime Gesture Attacks** (`../anime-gesture-attacks`)
-   - MediaPipe Hands 3D kinematic landmark recognition.
-   - Procedural Web Audio API anime attack sound synthesizer (Kamehameha, Chidori, Rasengan, Unlimited Void).
-   - High-FPS canvas particle physics.
-   - 7/7 unit tests passing.
-2. **CV Fitness Rep Counter** (`../cv-fitness-rep-counter`)
-   - MediaPipe Pose biomechanics tracker.
-   - 3-point trigonometric joint angle math with hysteresis state machine.
-   - Integrated Web Speech API audio voice coach.
-   - 8/8 unit tests passing.
-3. **CardioVision Pulse Monitor** (`../cardiovision-pulse-monitor`)
-   - Optical contactless photoplethysmography (rPPG).
-   - Cascaded 2nd-order Butterworth biquad IIR bandpass filtering (0.7 Hz - 3.0 Hz).
-   - Hanning window FFT power spectrum and HRV RMSSD calculation.
-   - 10/10 unit tests passing.
-4. **God's Eye AR HUD** (`../gods-eye-vision-hud`)
-   - Sci-fi multimodal Augmented Reality HUD and tactical scene analyzer.
-   - Autonomous target tracker with Kalman/EMA smoothing.
-   - Optical pinhole camera depth estimation.
-   - 360° tactical radar polar projection and procedural audio chirps.
-   - 10/10 unit tests passing.
+- **Live Domain:** [sabhyamai.in](https://sabhyamai.in)
+- **GitHub:** [github.com/sabhyamtrivedycoder](https://github.com/sabhyamtrivedycoder)
+- **Founder:** Spark2Ship and sabhyamai.in
+- **Contact:** sabhyamtrivedy@gmail.com | +91 9113427386
 
 ---
 
-## 🛠️ Tech Stack
+## Architecture & Features
 
-- **Frontend & Styling:** HTML5, CSS3 Glassmorphism, Responsive Grid, Inter & JetBrains Mono typography.
-- **Vision & Math:** MediaPipe (Hands, Pose), IIR Biquad Filters, FFT, Kalman/EMA Filtering, Trigonometric Kinematics.
-- **Audio & VFX:** Procedural Web Audio API synthesizer, HTML5 Canvas 2D particle systems.
-- **Backend & Cloud:** Node.js, Python microservices, Firebase Auth, REST APIs.
+### 1. 3D Sky Atmosphere & Floating Dynamics
+- Volumetric drifting clouds with radial feathered alpha-masking.
+- Floating hot air balloon with subtle 3D cursor-tracking parallax.
+- Deep azure to lavender twilight dreamscape.
+
+### 2. Interactive Chibi Mascot & Digital Twin
+- Chibi digital twin mascot reacting to pointer trajectory in real time.
+- Speech bubble and floating cloud island companion pod.
+- Dynamic emotion buttons (Heart, Starstruck, Surprise, Sparkle, Delighted).
+- Synthesized Web Audio feedback boops.
+
+### 3. Tactile Retro Pocket Consoles (Works)
+- Hardware-inspired pocket consoles with OLED screen insets, textured knurled dials, and tactile action buttons.
+- Showcasing Spark2Ship, sabhyam-ai-mcp, and Neural CV & Gesture DSP.
+
+### 4. 3D Hardcover Standing Bookshelf
+- Physical 3D hardcover books built with CSS 3D transforms (`transform-style: preserve-3d`).
+- Vertical spine typography with animated opening cover mechanics.
+- The 3 formative books:
+  - *Steve Jobs* by Walter Isaacson
+  - *Zero to One* by Peter Thiel
+  - *Build, Don't Talk* by Raj Shamani
+
+### 5. Wildflower Meadow Scenery Footer
+- Layered wildflower hills with fluttering butterflies and front meadow grass.
+- 3D glossy translucent social application tiles (GitHub, LinkedIn, Sabhyam AI Agent).
 
 ---
 
-## 🚀 Quickstart
+## Quickstart
 
 Run with any static web server:
 
 ```bash
-# Using Node serve
-npx serve -l 3000 .
-
-# Or using Python
-python -m http.server 3000
+python -m http.server 8085
 ```
 
-Open `http://localhost:3000` to explore the portfolio and interactively launch all 4 Computer Vision systems!
-
----
-
-## 🧪 Verification
-
-Run the automated test suite:
-
-```bash
-node test.js
-```
-
-All 5 verification checks confirm asset integrity, portfolio metadata, local CV links, and strict exclusion constraints.
+Open `http://localhost:8085` to view the 3D portfolio.

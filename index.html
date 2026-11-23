@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sabhaym Trivedy | 14yo Software Engineer & Founder</title>
-  <meta name="description" content="Official portfolio of Sabhaym Trivedy - 14-year-old software engineer and founder. Specializing in autonomous multi-agent networks, neural computer vision, and full-stack software.">
+  <title>Sabhaym Trivedi | 14yo Software Engineer & Founder</title>
+  <meta name="description" content="Official portfolio of Sabhaym Trivedi - 14-year-old software engineer and founder. Specializing in autonomous multi-agent networks, neural computer vision, and full-stack software.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=3.5">
+  <link rel="stylesheet" href="styles.css?v=4.2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
@@ -42,12 +42,29 @@
         A <strong>14-year-old software engineer and founder</strong> from Jharkhand, India. Building autonomous agent systems, full-stack web platforms, and real-time computer vision architectures.
       </p>
 
-      <!-- Embedded Chibi Mascot in Hero Sky -->
-      <div class="hero-mascot-wrapper">
-        <div id="sabhyam-mascot-hero"></div>
-        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #ffffff; text-shadow: 0 1px 4px rgba(31, 24, 61, 0.4); margin-top: 0.4rem;">
-          CURSOR-TRACKING CHIBI • CLICK TO BOOP
-        </span>
+      <!-- Proper 3D Mascot Companion Stage -->
+      <div class="mascot-companion-stage">
+        <!-- Floating Speech Bubble -->
+        <div class="mascot-speech-bubble">
+          Hey! I'm Sabhaym's AI twin. Move your cursor to aim my gaze, or click to boop!
+        </div>
+
+        <!-- 3D Mascot Chibi Pod & Cloud Island -->
+        <div class="mascot-chibi-pod">
+          <div id="sabhyam-mascot-hero"></div>
+          <div class="mascot-cloud-base">
+            <span class="mascot-base-badge">SABHAYM AI // DIGITAL TWIN</span>
+          </div>
+        </div>
+
+        <!-- Interactive Emotion Trigger Chips -->
+        <div class="mascot-action-chips">
+          <button type="button" class="mascot-chip-btn" onclick="triggerEmotion('heart')">Heart</button>
+          <button type="button" class="mascot-chip-btn" onclick="triggerEmotion('wink')">Starstruck</button>
+          <button type="button" class="mascot-chip-btn" onclick="triggerEmotion('surprised')">Surprise</button>
+          <button type="button" class="mascot-chip-btn" onclick="triggerEmotion('sparkle')">Sparkle</button>
+          <button type="button" class="mascot-chip-btn" onclick="triggerEmotion('delighted')">Delighted</button>
+        </div>
       </div>
     </div>
   </header>
@@ -58,7 +75,7 @@
       <div class="whoami-narrative">
         <h2 class="section-serif-heading">Who am I?</h2>
         <p class="whoami-copy">
-          Hey, I'm <strong>Sabhaym Trivedy</strong>, a 14-year-old software engineer and builder. Over the past four years, I have architected 50+ repositories spanning autonomous multi-agent networks, neural computer vision DSP, and rapid deployment platforms.
+          Hey, I'm <strong>Sabhaym Trivedi</strong>, a 14-year-old software engineer and builder. Over the past four years, I have architected 50+ repositories spanning autonomous multi-agent networks, neural computer vision DSP, and rapid deployment platforms.
         </p>
         <p class="whoami-copy">
           Founder of <strong>Spark2Ship</strong> and <strong>sabhyamai.in</strong>. I believe that relentless execution speed, end-to-end craftsmanship, and clean system design are the only competitive advantages that truly matter.
@@ -140,7 +157,7 @@
         <!-- Console 2: Sabhyam AI & MCP Server -->
         <article class="pocket-console-chassis">
           <div class="console-oled-window">
-            <img src="assets/photos/sabhyam-maroon.jpg" alt="Sabhyam AI Model Context Protocol Server">
+            <img src="assets/photos/sabhyam-maroon.jpg" alt="Sabhaym AI Model Context Protocol Server">
           </div>
 
           <div class="console-control-deck">
@@ -197,7 +214,7 @@
     </div>
   </section>
 
-  <!-- Bookshelf Section: "Wisdom that shaped me" (3D Standing Books) -->
+  <!-- Bookshelf Section: Exactly 3 Books (Steve Jobs, Zero to One, Build Don't Talk) -->
   <section id="bookshelf" class="bookshelf-section">
     <div class="container">
       <div style="text-align: center; max-width: 680px; margin: 0 auto 3rem auto;">
@@ -239,34 +256,6 @@
           <div class="book-cover-face">
             <div class="book-spine-crease"></div>
             <img src="assets/books/build-dont-talk-cover.png" alt="Build Don't Talk by Raj Shamani">
-          </div>
-        </div>
-
-        <!-- Book 4: The Mom Test -->
-        <div class="book-3d-wrapper book-mom-test" onclick="openBook('the-mom-test')" title="Click to inspect The Mom Test">
-          <div class="book-spine-face">
-            <span class="book-spine-title">THE MOM TEST</span>
-          </div>
-          <div class="book-cover-face">
-            <div class="book-spine-crease"></div>
-            <div style="background: #dc2626; color: #fff; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1rem; text-align: center;">
-              <span style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; line-height: 1.1;">THE MOM TEST</span>
-              <span style="font-size: 0.72rem; margin-top: 0.5rem; opacity: 0.85;">ROB FITZPATRICK</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Book 5: Refactoring UI -->
-        <div class="book-3d-wrapper book-refactoring-ui" onclick="openBook('refactoring-ui')" title="Click to inspect Refactoring UI">
-          <div class="book-spine-face">
-            <span class="book-spine-title">REFACTORING UI</span>
-          </div>
-          <div class="book-cover-face">
-            <div class="book-spine-crease"></div>
-            <div style="background: #0f172a; color: #38bdf8; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1rem; text-align: center;">
-              <span style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; line-height: 1.1; color: #fff;">Refactoring UI</span>
-              <span style="font-size: 0.72rem; margin-top: 0.5rem; color: #38bdf8;">ADAM WATHAN & STEVE SCHOGER</span>
-            </div>
           </div>
         </div>
 
@@ -368,7 +357,7 @@
     </div>
 
     <div class="footer-legal">
-      Sabhaym Trivedy © 2026. All rights reserved.
+      Sabhaym Trivedi © 2026. All rights reserved.
     </div>
   </footer>
 
@@ -385,7 +374,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="assets/mascot.js"></script>
-  <script src="app.js?v=3.5"></script>
+  <script src="assets/mascot.js?v=4.2"></script>
+  <script src="app.js?v=4.2"></script>
 </body>
 </html>

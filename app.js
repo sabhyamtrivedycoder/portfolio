@@ -1,7 +1,7 @@
 /**
- * Sabhaym Trivedy - 3D Immersive Portfolio Engine
+ * Sabhaym Trivedi - 3D Immersive Portfolio Engine
  * Dynamic 3D Cursor Parallax, Interactive 3D Card Tilt,
- * and Physical Book Inspector.
+ * Physical Book Inspector & Mascot Companion Controller.
  */
 
 (function() {
@@ -12,6 +12,7 @@
   const cloudRight = document.querySelector('.cloud-hero-right');
   const cloudLeft = document.querySelector('.cloud-hero-left');
   const heroTitle = document.querySelector('.hero-name-sculpted');
+  const speechBubble = document.querySelector('.mascot-speech-bubble');
 
   window.addEventListener('mousemove', (e) => {
     const cx = window.innerWidth / 2;
@@ -30,6 +31,9 @@
     }
     if (heroTitle) {
       heroTitle.style.transform = `perspective(1000px) rotateY(${dx * 6}deg) rotateX(${-dy * 6}deg) translateZ(25px)`;
+    }
+    if (speechBubble) {
+      speechBubble.style.transform = `translate3d(${dx * 12}px, ${dy * 8}px, 0)`;
     }
   });
 
@@ -54,7 +58,7 @@
   document.querySelectorAll('.pocket-console-chassis').forEach(el => apply3DTilt(el, 8));
   document.querySelectorAll('.polaroid-frame').forEach(el => apply3DTilt(el, 14));
 
-  // --- Book Details Matrix ---
+  // --- 3 Books Matrix ---
   const bookData = {
     'steve-jobs': {
       title: 'Steve Jobs',
@@ -70,16 +74,6 @@
       title: "Build, Don't Talk",
       author: 'RAJ SHAMANI',
       insight: 'Speed of execution over endless deliberation. Raw building, authentic communication, and learning by putting working software into production.'
-    },
-    'the-mom-test': {
-      title: 'The Mom Test',
-      author: 'ROB FITZPATRICK',
-      insight: 'How to ask genuine customer questions that reveal actual user behavior rather than polite compliments.'
-    },
-    'refactoring-ui': {
-      title: 'Refactoring UI',
-      author: 'ADAM WATHAN & STEVE SCHOGER',
-      insight: 'Designing with hierarchy, subtle depth, intentional white-space, and tactile craftsmanship rather than default framework components.'
     }
   };
 
@@ -105,13 +99,20 @@
     if (modal) modal.style.display = 'none';
   };
 
-  // Initialize Mascot
+  // Helper for mascot emotion buttons
+  window.triggerEmotion = function(emotion) {
+    if (typeof window.triggerMascotEmotion === 'function') {
+      window.triggerMascotEmotion(emotion);
+    }
+  };
+
+  // Initialize Mascot with enhanced size
   document.addEventListener('DOMContentLoaded', () => {
     if (typeof window.createSabhyamMascot === 'function') {
       window.createSabhyamMascot('sabhyam-mascot-hero', {
-        size: 165,
-        directions: 'assets/mascots/sabhyam-directions.webp',
-        reactions: 'assets/mascots/sabhyam-reactions.webp'
+        size: 210,
+        directions: 'assets/mascots/sabhyam-directions.webp?v=4.2',
+        reactions: 'assets/mascots/sabhyam-reactions.webp?v=4.2'
       });
     }
   });

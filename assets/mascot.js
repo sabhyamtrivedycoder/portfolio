@@ -1,6 +1,7 @@
 /**
- * Sabhyam Mascot - Cursor-Tracking & Interactive Chibi Mascot
+ * Sabhaym Mascot - Cursor-Tracking & Interactive Chibi Mascot
  * Adapted from page-mascot (Three-by-Three directional & reaction WebP atlases)
+ * Featuring tactile audio boops and external reaction API.
  */
 (function initMascot() {
   const DIRECTIONS = [
@@ -26,7 +27,7 @@
 
   const PAYOFFS = ['heart', 'sparkle', 'delighted'];
   const BOOP_PAYOFF = 120;
-  const BOOP_END = 560;
+  const BOOP_END = 700;
   const SQUASH_MS = 420;
   const DIZZY_AFTER = 4;
   const DIZZY_WINDOW = 1600;
@@ -50,16 +51,35 @@
     return Math.atan2(Math.sin(angle), Math.cos(angle));
   }
 
+  // Web Audio boop synthesizer
+  function playBoopSound(freq = 560) {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, ctx.currentTime);
+      gain.gain.setValueAtTime(0.06, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.18);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.18);
+    } catch (e) {}
+  }
+
   window.createSabhyamMascot = function(containerId, options = {}) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    const size = options.size || 150;
+    const size = options.size || 210;
     const directionsUrl = options.directions || 'assets/mascots/sabhyam-directions.webp';
     const reactionsUrl = options.reactions || 'assets/mascots/sabhyam-reactions.webp';
 
     container.innerHTML = `
-      <button type="button" class="mascot-btn" aria-label="Boop Sabhyam Mascot" style="
+      <button type="button" class="mascot-btn" aria-label="Boop Sabhaym Mascot" style="
         position: relative;
         display: inline-block;
         width: ${size}px;
@@ -70,7 +90,8 @@
         cursor: pointer;
         user-select: none;
         outline: none;
-        filter: drop-shadow(0 8px 24px rgba(0, 240, 255, 0.25));
+        filter: drop-shadow(0 14px 28px rgba(31, 24, 61, 0.35));
+        transition: transform 0.2s ease;
       ">
         <span class="mascot-squash" style="
           position: relative;
@@ -165,7 +186,7 @@
 
     window.addEventListener('scroll', aim, { passive: true });
 
-    button.addEventListener('click', () => {
+    function triggerBoop() {
       timers.forEach(clearTimeout);
       timers = [];
 
@@ -176,6 +197,8 @@
       const now = Date.now();
       boops.count = now - boops.at < DIZZY_WINDOW ? boops.count + 1 : 1;
       boops.at = now;
+
+      playBoopSound(580 + (boops.count % 4) * 80);
 
       if (boops.count >= DIZZY_AFTER) {
         boops.count = 0;
@@ -190,13 +213,18 @@
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         squash.animate(SQUASH, { duration: SQUASH_MS, easing: 'linear' });
       }
-    });
-  };
-
-  // Auto-init if element exists
-  document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('sabhyam-mascot')) {
-      window.createSabhyamMascot('sabhyam-mascot');
     }
-  });
+
+    button.addEventListener('click', triggerBoop);
+
+    // Expose reaction trigger
+    window.triggerMascotEmotion = function(emotion) {
+      timers.forEach(clearTimeout);
+      timers = [];
+      setReact(emotion);
+      playBoopSound(640);
+      squash.animate(SQUASH, { duration: SQUASH_MS, easing: 'linear' });
+      timers.push(setTimeout(() => setReact(null), 1800));
+    };
+  };
 })();
