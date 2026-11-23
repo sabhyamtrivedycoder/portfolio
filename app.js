@@ -1,166 +1,66 @@
 /**
- * Sabhyam Trivedy - Flagship Portfolio Interactive Engine
- * Tactile Skeuomorphism, Ambient Audio Synthesizer, Real-time Clock,
- * and Mascot Controller.
+ * Sabhyam Trivedy - 3D Immersive Portfolio Engine
+ * Interactive 3D Book Inspector & Mascot Initializer
  */
 
-(function initPortfolio() {
+(function() {
   'use strict';
 
-  // --- Real-time IST Clock for Floating Dock ---
-  function updateDockClock() {
-    const clockEl = document.getElementById('dock-clock');
-    if (!clockEl) return;
-    const now = new Date();
-    // Format in IST (UTC+5:30)
-    const options = {
-      timeZone: 'Asia/Kolkata',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false
-    };
-    clockEl.textContent = new Intl.DateTimeFormat('en-GB', options).format(now) + ' IST';
-  }
-  setInterval(updateDockClock, 1000);
-  updateDockClock();
-
-  // --- Ambient Web Audio Flow Synthesizer (William Le Inspired) ---
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  let audioCtx = null;
-  let isPlaying = false;
-  let masterGain = null;
-  let oscNodes = [];
-
-  function initAudioEngine() {
-    if (audioCtx) return;
-    audioCtx = new AudioContext();
-    masterGain = audioCtx.createGain();
-    masterGain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-    masterGain.connect(audioCtx.destination);
-  }
-
-  function startAmbientFrequencies() {
-    initAudioEngine();
-    if (audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
-
-    // Generate warm 432Hz ambient chord (C# minor / deep flow frequencies)
-    const freqs = [108, 162, 216, 324];
-    oscNodes = freqs.map((freq, i) => {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = i % 2 === 0 ? 'sine' : 'triangle';
-      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-
-      gain.gain.setValueAtTime(0.015 / (i + 1), audioCtx.currentTime);
-      osc.connect(gain);
-      gain.connect(masterGain);
-      osc.start();
-      return { osc, gain };
-    });
-
-    isPlaying = true;
-    updateSoundCapsuleUI();
-  }
-
-  function stopAmbientFrequencies() {
-    if (!audioCtx) return;
-    oscNodes.forEach(({ osc }) => {
-      try {
-        osc.stop();
-        osc.disconnect();
-      } catch (e) {}
-    });
-    oscNodes = [];
-    isPlaying = false;
-    updateSoundCapsuleUI();
-  }
-
-  function toggleSound() {
-    if (isPlaying) {
-      stopAmbientFrequencies();
-    } else {
-      startAmbientFrequencies();
-    }
-  }
-
-  function updateSoundCapsuleUI() {
-    const capsule = document.getElementById('sound-capsule');
-    const label = document.getElementById('sound-label');
-    if (!capsule || !label) return;
-
-    if (isPlaying) {
-      capsule.classList.remove('paused');
-      label.textContent = 'Flow Synth • Playing';
-    } else {
-      capsule.classList.add('paused');
-      label.textContent = 'Ambient Flow • Sound On';
-    }
-  }
-
-  const soundBtn = document.getElementById('sound-capsule');
-  if (soundBtn) {
-    soundBtn.addEventListener('click', toggleSound);
-  }
-
-  // --- Interactive Bookshelf Reader Modal / Detail ---
-  const bookNotes = {
-    'sicp': {
-      title: 'Structure and Interpretation of Computer Programs',
-      author: 'Harold Abelson & Gerald Jay Sussman',
-      insight: 'Taught me that programs must be written for people to read, and only incidentally for machines to execute. Mastered recursive process decomposition and meta-linguistic abstraction.'
-    },
-    'everyday': {
-      title: 'The Design of Everyday Things',
-      author: 'Don Norman',
-      insight: 'Affordances, signifiers, and mental models. Every software system I architect is built with intuitive feedback loops and tactile clarity.'
-    },
-    'deep-learning': {
-      title: 'Deep Learning',
-      author: 'Ian Goodfellow, Yoshua Bengio, Aaron Courville',
-      insight: 'The mathematical bedrock behind neural network backpropagation, representation learning, and real-time computer vision DSP pipelines.'
+  const bookData = {
+    'steve-jobs': {
+      title: 'Steve Jobs',
+      author: 'WALTER ISAACSON',
+      insight: 'The intersection of technology and liberal arts. Relentless focus on end-to-end integration of hardware, software, and pure aesthetic simplicity.'
     },
     'zero-to-one': {
-      title: 'Zero to One',
-      author: 'Peter Thiel',
-      insight: 'Building proprietary technology that is 10x better than existing alternatives. The operational catalyst behind founding HoloVerse AI and Spark2Ship.'
+      title: 'Zero to One: Notes on Startups',
+      author: 'PETER THIEL WITH BLAKE MASTERS',
+      insight: 'Creating things that have never existed before (0 to 1) rather than copying existing models (1 to n). The core catalyst behind Spark2Ship and my software engineering ventures.'
     },
-    'crafting-interpreters': {
-      title: 'Crafting Interpreters',
-      author: 'Robert Nystrom',
-      insight: 'Architecting bytecode virtual machines, AST evaluation, and lexical parsers from scratch in C and Java.'
+    'build-dont-talk': {
+      title: "Build, Don't Talk",
+      author: 'RAJ SHAMANI',
+      insight: 'Speed of execution over endless deliberation. Raw building, authentic communication, and learning by putting working software into production.'
+    },
+    'the-mom-test': {
+      title: 'The Mom Test',
+      author: 'ROB FITZPATRICK',
+      insight: 'How to ask genuine customer questions that reveal actual user behavior rather than polite compliments.'
+    },
+    'refactoring-ui': {
+      title: 'Refactoring UI',
+      author: 'ADAM WATHAN & STEVE SCHOGER',
+      insight: 'Designing with hierarchy, subtle depth, intentional white-space, and tactile craftsmanship rather than default framework components.'
     }
   };
 
-  window.inspectBook = function(bookId) {
-    const data = bookNotes[bookId];
+  window.openBook = function(key) {
+    const data = bookData[key];
     if (!data) return;
 
-    const overlay = document.getElementById('book-inspect-modal');
-    const titleEl = document.getElementById('modal-book-title');
+    const modal = document.getElementById('book-detail-modal');
     const authorEl = document.getElementById('modal-book-author');
+    const titleEl = document.getElementById('modal-book-title');
     const insightEl = document.getElementById('modal-book-insight');
 
-    if (overlay && titleEl && authorEl && insightEl) {
+    if (modal && authorEl && titleEl && insightEl) {
+      authorEl.textContent = data.author;
       titleEl.textContent = data.title;
-      authorEl.textContent = 'BY ' + data.author.toUpperCase();
       insightEl.textContent = data.insight;
-      overlay.style.display = 'flex';
+      modal.style.display = 'flex';
     }
   };
 
-  window.closeBookModal = function() {
-    const overlay = document.getElementById('book-inspect-modal');
-    if (overlay) overlay.style.display = 'none';
+  window.closeBook = function() {
+    const modal = document.getElementById('book-detail-modal');
+    if (modal) modal.style.display = 'none';
   };
 
-  // --- Initialize Cursor-Tracking Mascot ---
+  // Initialize Mascot
   document.addEventListener('DOMContentLoaded', () => {
     if (typeof window.createSabhyamMascot === 'function') {
-      window.createSabhyamMascot('sabhyam-mascot-dock', {
-        size: 155,
+      window.createSabhyamMascot('sabhyam-mascot-hero', {
+        size: 165,
         directions: 'assets/mascots/sabhyam-directions.webp',
         reactions: 'assets/mascots/sabhyam-reactions.webp'
       });

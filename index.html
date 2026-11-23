@@ -4,640 +4,387 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sabhyam Trivedy | 14yo Software Engineer & Founder</title>
-  <meta name="description" content="Official portfolio of Sabhyam Trivedy - 14-year-old software engineer and founder of HoloVerse AI, Spark2Ship, and sabhyamai.in. Featuring tactile skeuomorphic systems, 3D engines, and vision AI.">
+  <meta name="description" content="Official portfolio of Sabhyam Trivedy - 14-year-old software engineer and founder. Specializing in autonomous multi-agent networks, neural computer vision, and full-stack software.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=2.5">
+  <link rel="stylesheet" href="styles.css?v=3.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
 
-  <!-- Floating visionOS Frosted Pill Navigation (William Le Style) -->
-  <header class="floating-dock-wrap">
-    <nav class="floating-dock" aria-label="Main Navigation">
-      <a href="#hero" class="dock-brand">
-        <div class="dock-badge-monogram">ST</div>
-        <span>Sabhyam</span>
-      </a>
+  <!-- Floating Sky Atmosphere: 3D Clouds & Drifting Hot Air Balloon -->
+  <div class="sky-atmosphere">
+    <img src="assets/framer/balloon.png" alt="Hot Air Balloon" class="floating-balloon">
+    <img src="assets/framer/cloud3.webp" alt="Cloud" class="cloud-layer cloud-hero-right">
+    <img src="assets/framer/purple-mist.webp" alt="Mist" class="cloud-layer cloud-hero-left">
+    <img src="assets/framer/cloud3.webp" alt="Cloud" class="cloud-layer cloud-mid-right">
+    <img src="assets/framer/cloud3.webp" alt="Cloud" class="cloud-layer cloud-books-left">
+  </div>
 
-      <div class="dock-status-indicator">
-        <div class="pulse-dot"></div>
-        <span>Building Autonomous Systems</span>
-      </div>
-
-      <ul class="dock-links">
-        <li><a href="#works">Gadgets</a></li>
-        <li><a href="#bookshelf">Bookshelf</a></li>
-        <li><a href="#pinboard">Pinboard</a></li>
-        <li><a href="#journey">Journey</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-
-      <div class="dock-meta-time">
-        <span id="dock-clock">--:--:-- IST</span>
-      </div>
+  <!-- Bottom-Left Floating Navigation Corner -->
+  <aside class="floating-nav-corner" aria-label="Page Navigation">
+    <nav class="nav-menu-card">
+      <a href="#hero">Home</a>
+      <a href="#whoami">About me</a>
+      <a href="#works">Works</a>
+      <a href="#bookshelf">Books</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
     </nav>
-  </header>
+  </aside>
 
-  <!-- Ambient Sound Capsule (William Le Flow Soundtrack) -->
-  <div class="sound-capsule-wrap">
-    <button type="button" id="sound-capsule" class="sound-capsule paused" aria-label="Toggle ambient flow frequencies">
-      <div class="sound-eq-bars">
-        <div class="eq-bar"></div>
-        <div class="eq-bar"></div>
-        <div class="eq-bar"></div>
-        <div class="eq-bar"></div>
-      </div>
-      <span id="sound-label" class="sound-text-label">Ambient Flow • Sound On</span>
-    </button>
-  </div>
-
-  <!-- Hero Section: Atmospheric Sky & Tangible Nostalgia -->
-  <section id="hero" class="hero-atmosphere">
-    <div class="ambient-cloud-plane"></div>
-
-    <div class="container hero-grid">
-      <div class="hero-narrative">
-        <div class="hero-editorial-pill">
-          <span>14-YEAR-OLD FOUNDER • 50+ SYSTEMS SHIPPED</span>
-        </div>
-
-        <h1 class="hero-main-title">
-          Engineering <em>Autonomous Intelligence</em>, Spatial Vision & Tangible Code.
-        </h1>
-
-        <p class="hero-description">
-          Hi, I am <strong>Sabhyam Trivedy</strong>. Based in Jharkhand, India, I architect real-time computer vision pipelines, multi-agent MCP networks, and procedural 3D simulation engines. Founder of <strong>HoloVerse AI</strong>, <strong>Spark2Ship</strong>, and <strong>sabhyamai.in</strong>.
-        </p>
-
-        <div class="hero-action-cluster">
-          <a href="#works" class="btn-tactile-primary">Explore Handheld Gadgets -></a>
-          <a href="https://github.com/sabhyamtrivedycoder" target="_blank" rel="noopener noreferrer" class="btn-tactile-secondary">GitHub Matrix</a>
-          <a href="https://www.linkedin.com/in/sabhyamtrivedy" target="_blank" rel="noopener noreferrer" class="btn-tactile-secondary">LinkedIn Profile</a>
-          <a href="https://sabhyamtrivedycoder.github.io/sabhyam-ai-agent/" target="_blank" rel="noopener noreferrer" class="btn-tactile-secondary">Digital Twin Agent</a>
-        </div>
-      </div>
-
-      <!-- Hero Visual Stage: Wooden Pedestal with Mascot & Polaroid Stack -->
-      <div class="hero-visual-stage">
-        
-        <!-- Tactile Chibi Mascot Pedestal -->
-        <div class="mascot-wood-pedestal">
-          <div id="sabhyam-mascot-dock"></div>
-          <div class="pedestal-base">
-            <span class="pedestal-brass-plate">SABHYAM CHIBI • V2.4</span>
-          </div>
-          <span class="mascot-tag-caption">Interactive Gaze • Click to Boop</span>
-        </div>
-
-        <!-- Polaroid Photo Composition with Authentic Photos & Washi Tape -->
-        <div class="polaroid-composition">
-          
-          <!-- Polaroid 1: Ceremony & Roots -->
-          <div class="polaroid-card polaroid-1">
-            <div class="washi-tape"></div>
-            <div class="polaroid-img-frame">
-              <img src="assets/photos/sabhyam-ceremony.jpg" alt="Sabhyam Trivedy Ceremony">
-            </div>
-            <div class="polaroid-caption">Roots & Tradition</div>
-          </div>
-
-          <!-- Polaroid 2: Vision & Engineering -->
-          <div class="polaroid-card polaroid-2">
-            <div class="washi-tape" style="transform: translateX(-50%) rotate(-3deg);"></div>
-            <div class="polaroid-img-frame">
-              <img src="assets/photos/sabhyam-blue-kurta.jpg" alt="Sabhyam Trivedy Blue Kurta">
-            </div>
-            <div class="polaroid-caption">Designing the Future</div>
-          </div>
-
-          <!-- Polaroid 3: Deep Focus -->
-          <div class="polaroid-card polaroid-3">
-            <div class="washi-tape" style="transform: translateX(-50%) rotate(1deg);"></div>
-            <div class="polaroid-img-frame">
-              <img src="assets/photos/sabhyam-profile.jpg" alt="Sabhyam Trivedy Profile">
-            </div>
-            <div class="polaroid-caption">Deep Flow State</div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 1: Tactile Retro-Gadget Handheld Consoles (Ayush Dhibar Inspired) -->
-  <section id="works" class="gadgets-section">
+  <!-- Hero Section: "Hi, I'm Sabhyam" -->
+  <header id="hero" class="hero-section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">Tactile Hardware Metaphor</span>
-        <h2 class="section-title">Case Studies in <em>Pocket Consoles</em></h2>
-        <p class="section-subtitle">
-          Physical computing meets high-performance software engineering. Each production system encased in a retro handheld console chassis.
-        </p>
-      </div>
-
-      <div class="gadgets-grid">
-
-        <!-- Console 1: HoloVerse AI -->
-        <article class="retro-console-card">
-          <div class="console-top-strip">
-            <span class="console-brand-mark">HOLOVERSE // SPATIAL OS</span>
-            <div class="console-led-power">
-              <div class="led-bulb"></div>
-              <span>ONLINE</span>
-            </div>
-          </div>
-
-          <div class="console-screen-recess">
-            <div class="console-screen-display">
-              <img src="assets/sabhyamai-screenshot.png" alt="HoloVerse AI Simulation Engine">
-              <span class="console-overlay-badge">PROCEDURAL 3D • THREE.JS • GLSL</span>
-            </div>
-          </div>
-
-          <div class="console-controls-deck">
-            <div class="dpad-cross">
-              <div class="dpad-h"></div>
-              <div class="dpad-v"></div>
-              <div class="dpad-center-indent"></div>
-            </div>
-
-            <div class="speaker-grille">
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-            </div>
-
-            <div class="action-buttons-wrap">
-              <div class="console-btn">B</div>
-              <div class="console-btn console-btn-b">A</div>
-            </div>
-          </div>
-
-          <div class="console-project-info">
-            <h3 class="console-project-title">
-              HoloVerse AI
-              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--cyan);">01</span>
-            </h3>
-            <p class="console-project-desc">
-              Real-time procedural 3D world simulation and interactive spatial computing engine. Features infinite terrain generation, custom GLSL shaders, and physics-driven particle systems.
-            </p>
-            <div class="console-tech-tags">
-              <span class="console-tag">WebGL</span>
-              <span class="console-tag">Three.js</span>
-              <span class="console-tag">GLSL Shaders</span>
-              <span class="console-tag">Spatial Audio</span>
-            </div>
-            <a href="https://sabhyamtrivedycoder.github.io/holoverse-ai/" target="_blank" rel="noopener noreferrer" class="console-launch-btn">Launch Simulator Cartridge -></a>
-          </div>
-        </article>
-
-        <!-- Console 2: Spark2Ship -->
-        <article class="retro-console-card">
-          <div class="console-top-strip">
-            <span class="console-brand-mark">SPARK2SHIP // DEVOPS FABRIC</span>
-            <div class="console-led-power">
-              <div class="led-bulb"></div>
-              <span>ONLINE</span>
-            </div>
-          </div>
-
-          <div class="console-screen-recess">
-            <div class="console-screen-display">
-              <img src="assets/spark2ship-preview.png" alt="Spark2Ship Autonomous Deployment Platform">
-              <span class="console-overlay-badge">RAPID SHIP • BUILD FACTORY</span>
-            </div>
-          </div>
-
-          <div class="console-controls-deck">
-            <div class="dpad-cross">
-              <div class="dpad-h"></div>
-              <div class="dpad-v"></div>
-              <div class="dpad-center-indent"></div>
-            </div>
-
-            <div class="speaker-grille">
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-            </div>
-
-            <div class="action-buttons-wrap">
-              <div class="console-btn">B</div>
-              <div class="console-btn console-btn-b">A</div>
-            </div>
-          </div>
-
-          <div class="console-project-info">
-            <h3 class="console-project-title">
-              Spark2Ship
-              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--cyan);">02</span>
-            </h3>
-            <p class="console-project-desc">
-              Autonomous venture and rapid delivery engine transforming raw concepts into deployed production applications with automated CI/CD pipelines and instant cloud provisioning.
-            </p>
-            <div class="console-tech-tags">
-              <span class="console-tag">TypeScript</span>
-              <span class="console-tag">Node.js</span>
-              <span class="console-tag">GitHub Actions</span>
-              <span class="console-tag">Edge Routing</span>
-            </div>
-            <a href="ventures.html" class="console-launch-btn">Inspect Venture Specs -></a>
-          </div>
-        </article>
-
-        <!-- Console 3: Sabhyam AI & MCP Server -->
-        <article class="retro-console-card">
-          <div class="console-top-strip">
-            <span class="console-brand-mark">SABHYAM AI // MCP PROTOCOL</span>
-            <div class="console-led-power">
-              <div class="led-bulb"></div>
-              <span>ONLINE</span>
-            </div>
-          </div>
-
-          <div class="console-screen-recess">
-            <div class="console-screen-display">
-              <img src="assets/photos/sabhyam-maroon.jpg" alt="Sabhyam AI Digital Twin & MCP Server">
-              <span class="console-overlay-badge">MODEL CONTEXT PROTOCOL • 6 TOOLS</span>
-            </div>
-          </div>
-
-          <div class="console-controls-deck">
-            <div class="dpad-cross">
-              <div class="dpad-h"></div>
-              <div class="dpad-v"></div>
-              <div class="dpad-center-indent"></div>
-            </div>
-
-            <div class="speaker-grille">
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-            </div>
-
-            <div class="action-buttons-wrap">
-              <div class="console-btn">B</div>
-              <div class="console-btn console-btn-b">A</div>
-            </div>
-          </div>
-
-          <div class="console-project-info">
-            <h3 class="console-project-title">
-              sabhyam-ai-mcp
-              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--cyan);">03</span>
-            </h3>
-            <p class="console-project-desc">
-              Production-grade Model Context Protocol (MCP) server connecting Claude Code, Antigravity, and OpenAI Codex into a unified software engineering system over stdio transport.
-            </p>
-            <div class="console-tech-tags">
-              <span class="console-tag">@modelcontextprotocol/sdk</span>
-              <span class="console-tag">Stdio IPC</span>
-              <span class="console-tag">JSON-RPC 2.0</span>
-              <span class="console-tag">Multi-Agent</span>
-            </div>
-            <a href="https://github.com/sabhyamtrivedycoder/sabhyam-ai-mcp" target="_blank" rel="noopener noreferrer" class="console-launch-btn">Explore MCP Repository -></a>
-          </div>
-        </article>
-
-        <!-- Console 4: Optical Computer Vision Labs -->
-        <article class="retro-console-card">
-          <div class="console-top-strip">
-            <span class="console-brand-mark">NEURAL CV // EDGE DSP</span>
-            <div class="console-led-power">
-              <div class="led-bulb"></div>
-              <span>ONLINE</span>
-            </div>
-          </div>
-
-          <div class="console-screen-recess">
-            <div class="console-screen-display">
-              <img src="assets/sabhyam.jpg" alt="Neural Computer Vision Systems">
-              <span class="console-overlay-badge">468-POINT MESH • ZERO LATENCY</span>
-            </div>
-          </div>
-
-          <div class="console-controls-deck">
-            <div class="dpad-cross">
-              <div class="dpad-h"></div>
-              <div class="dpad-v"></div>
-              <div class="dpad-center-indent"></div>
-            </div>
-
-            <div class="speaker-grille">
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-              <div class="speaker-pinhole"></div>
-            </div>
-
-            <div class="action-buttons-wrap">
-              <div class="console-btn">B</div>
-              <div class="console-btn console-btn-b">A</div>
-            </div>
-          </div>
-
-          <div class="console-project-info">
-            <h3 class="console-project-title">
-              Vision AI & DSP Labs
-              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--cyan);">04</span>
-            </h3>
-            <p class="console-project-desc">
-              Browser-native computer vision applications featuring 468-point facial landmark topology, 21-point hand skeleton tracking, and real-time optical filters operating at 60 FPS.
-            </p>
-            <div class="console-tech-tags">
-              <span class="console-tag">MediaPipe</span>
-              <span class="console-tag">TensorFlow.js</span>
-              <span class="console-tag">Canvas 2D DSP</span>
-              <span class="console-tag">WebRTC</span>
-            </div>
-            <a href="vision.html" class="console-launch-btn">Test Live Camera DSP -></a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 2: Interactive 3D Hardcover Bookshelf (Ayush Dhibar Feature) -->
-  <section id="bookshelf" class="bookshelf-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">Philosophical & Technical Foundations</span>
-        <h2 class="section-title">Wisdom That <em>Shaped My Craft</em></h2>
-        <p class="section-subtitle">
-          Hover over any hardcover edition to pull it forward, or click to inspect key architectural takeaways.
-        </p>
-      </div>
-
-      <div class="bookshelf-stage">
-        <div class="books-row">
-          
-          <!-- Book 1: SICP -->
-          <div class="book-standing book-1" onclick="inspectBook('sicp')">
-            <div class="book-spine-depth"></div>
-            <div class="book-pages-edge"></div>
-            <div class="book-bookmark-ribbon"></div>
-            <div class="book-cover">
-              <div class="book-author-emboss">Abelson & Sussman</div>
-              <div class="book-title-emboss">Structure and Interpretation of Computer Programs</div>
-              <div class="book-author-emboss">MIT Press</div>
-            </div>
-          </div>
-
-          <!-- Book 2: Everyday Things -->
-          <div class="book-standing book-2" onclick="inspectBook('everyday')">
-            <div class="book-spine-depth"></div>
-            <div class="book-pages-edge"></div>
-            <div class="book-bookmark-ribbon" style="background: #fde047;"></div>
-            <div class="book-cover">
-              <div class="book-author-emboss">Don Norman</div>
-              <div class="book-title-emboss">The Design of Everyday Things</div>
-              <div class="book-author-emboss">Basic Books</div>
-            </div>
-          </div>
-
-          <!-- Book 3: Deep Learning -->
-          <div class="book-standing book-3" onclick="inspectBook('deep-learning')">
-            <div class="book-spine-depth"></div>
-            <div class="book-pages-edge"></div>
-            <div class="book-bookmark-ribbon" style="background: #34d399;"></div>
-            <div class="book-cover">
-              <div class="book-author-emboss">Goodfellow & Bengio</div>
-              <div class="book-title-emboss">Deep Learning Foundations</div>
-              <div class="book-author-emboss">Adaptive Computation</div>
-            </div>
-          </div>
-
-          <!-- Book 4: Zero to One -->
-          <div class="book-standing book-4" onclick="inspectBook('zero-to-one')">
-            <div class="book-spine-depth"></div>
-            <div class="book-pages-edge"></div>
-            <div class="book-bookmark-ribbon" style="background: #38bdf8;"></div>
-            <div class="book-cover">
-              <div class="book-author-emboss">Peter Thiel</div>
-              <div class="book-title-emboss">Zero to One: Building Startups</div>
-              <div class="book-author-emboss">Crown Business</div>
-            </div>
-          </div>
-
-          <!-- Book 5: Crafting Interpreters -->
-          <div class="book-standing book-5" onclick="inspectBook('crafting-interpreters')">
-            <div class="book-spine-depth"></div>
-            <div class="book-pages-edge"></div>
-            <div class="book-bookmark-ribbon" style="background: #c084fc;"></div>
-            <div class="book-cover">
-              <div class="book-author-emboss">Robert Nystrom</div>
-              <div class="book-title-emboss">Crafting Interpreters</div>
-              <div class="book-author-emboss">Bytecode VM</div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Solid Wooden Bookshelf Plank with Ambient Shadow -->
-        <div class="wooden-shelf-plank"></div>
-        <div class="shelf-shadow-cast"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3: The Engineer's Cork Bulletin Board (Ayush Dhibar Feature) -->
-  <section id="pinboard" class="pinboard-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">Tactile Workshop</span>
-        <h2 class="section-title">The Engineer's <em>Cork Pinboard</em></h2>
-        <p class="section-subtitle">
-          Pinned notes, architectural blueprints, and engineering rules straight from my desk.
-        </p>
-      </div>
-
-      <div class="cork-frame">
-        <div class="pinboard-grid">
-
-          <!-- Note 1: Architecture Directive -->
-          <div class="pinned-item pin-note-yellow">
-            <div class="push-pin"></div>
-            <div class="pin-shadow"></div>
-            <h4>Cross-Agent Hub</h4>
-            <p>
-              Claude, Antigravity, and Codex bound together through standardized protocol rules. Shared memory across every CLI session.
-            </p>
-            <span class="note-date">PROTOCOL // 2026.11</span>
-          </div>
-
-          <!-- Note 2: Zero Emoji Rule -->
-          <div class="pinned-item pin-note-cyan">
-            <div class="push-pin" style="background: radial-gradient(circle at 35% 35%, #38bdf8 0%, #0369a1 80%);"></div>
-            <div class="pin-shadow"></div>
-            <h4>Zero-Emoji Policy</h4>
-            <p>
-              Strictly zero emojis in all code, comments, commits, and interfaces. Clean typography and rigorous craftsmanship above all.
-            </p>
-            <span class="note-date">RULE // UNIVERSAL</span>
-          </div>
-
-          <!-- Note 3: Speed & Ship -->
-          <div class="pinned-item pin-note-kraft">
-            <div class="push-pin" style="background: radial-gradient(circle at 35% 35%, #f43f5e 0%, #9f1239 80%);"></div>
-            <div class="pin-shadow"></div>
-            <h4>50+ Repositories</h4>
-            <p>
-              Speed of execution is the only enduring competitive advantage. From first commit to production deployment in single continuous sprints.
-            </p>
-            <span class="note-date">METRICS // GITHUB</span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 4: Glowing Milestone Timeline (Ayush Dhibar Glowing Trail) -->
-  <section id="journey" class="timeline-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">Milestones</span>
-        <h2 class="section-title">The Journey <em>So Far</em></h2>
-        <p class="section-subtitle">
-          From first syntax exploration to founding production companies and autonomous AI networks.
-        </p>
-      </div>
-
-      <div class="timeline-trail">
-
-        <!-- Node 1 -->
-        <div class="timeline-node">
-          <div class="timeline-node-marker"></div>
-          <div class="timeline-node-card">
-            <span class="timeline-year-badge">2022 • FIRST LOGIC & ALGORITHMS</span>
-            <h3 class="timeline-node-title">Wrote My First Lines of C++ & Python</h3>
-            <p class="timeline-node-desc">
-              Began self-directed exploration into algorithmic thinking, recursion, and data structures. Solved competitive programming challenges and built small CLI utilities.
-            </p>
-          </div>
-        </div>
-
-        <!-- Node 2 -->
-        <div class="timeline-node">
-          <div class="timeline-node-marker"></div>
-          <div class="timeline-node-card">
-            <span class="timeline-year-badge">2023 • SPATIAL SYSTEMS & FULL STACK</span>
-            <h3 class="timeline-node-title">Built 3D Graphics Pipelines & Web Apps</h3>
-            <p class="timeline-node-desc">
-              Mastered modern TypeScript, React, Three.js, and WebGL shader programming. Developed interactive physics simulations and high-performance frontend interfaces.
-            </p>
-          </div>
-        </div>
-
-        <!-- Node 3 -->
-        <div class="timeline-node">
-          <div class="timeline-node-marker"></div>
-          <div class="timeline-node-card">
-            <span class="timeline-year-badge">2024 • FOUNDER INITIATION</span>
-            <h3 class="timeline-node-title">Founded Spark2Ship & HoloVerse AI</h3>
-            <p class="timeline-node-desc">
-              Established Spark2Ship to accelerate software delivery and launched HoloVerse AI to pioneer procedural 3D world building and spatial computing environments.
-            </p>
-          </div>
-        </div>
-
-        <!-- Node 4 -->
-        <div class="timeline-node">
-          <div class="timeline-node-marker"></div>
-          <div class="timeline-node-card">
-            <span class="timeline-year-badge">2025 • OPTICAL VISION LABS</span>
-            <h3 class="timeline-node-title">Engineered Real-Time Neural CV Pipelines</h3>
-            <p class="timeline-node-desc">
-              Implemented zero-latency browser-native facial mesh and hand landmark tracking systems. Deployed DSP optical filter prototypes and interactive camera tools.
-            </p>
-          </div>
-        </div>
-
-        <!-- Node 5 -->
-        <div class="timeline-node">
-          <div class="timeline-node-marker"></div>
-          <div class="timeline-node-card">
-            <span class="timeline-year-badge">2026 • AUTONOMOUS AGENT ECOSYSTEM</span>
-            <h3 class="timeline-node-title">Sabhyam AI Digital Twin & MCP Universal Server</h3>
-            <p class="timeline-node-desc">
-              Architected the official Sabhyam AI Model Context Protocol server and cross-agent orchestrator connecting Claude Code, Antigravity, and Codex with custom cursor-tracking mascot telemetry.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive Book Inspect Modal -->
-  <div id="book-inspect-modal" style="display: none; position: fixed; inset: 0; background: rgba(5, 5, 12, 0.85); backdrop-filter: blur(16px); z-index: 10000; align-items: center; justify-content: center; padding: 1.5rem;">
-    <div style="background: linear-gradient(160deg, #1f1d38, #110f24); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 24px; padding: 2.25rem; max-width: 520px; width: 100%; box-shadow: 0 30px 60px rgba(0,0,0,0.8);">
-      <span id="modal-book-author" style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--amber); letter-spacing: 1px; display: block; margin-bottom: 0.4rem;"></span>
-      <h3 id="modal-book-title" style="font-family: var(--font-serif); font-size: 1.7rem; color: #fff; line-height: 1.25; margin-bottom: 1rem;"></h3>
-      <div style="height: 1px; background: rgba(255, 255, 255, 0.1); margin-bottom: 1.25rem;"></div>
-      <p style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--cyan); margin-bottom: 0.5rem; text-transform: uppercase;">Key Architectural Takeaway</p>
-      <p id="modal-book-insight" style="font-size: 0.98rem; color: var(--text-dim); line-height: 1.65; margin-bottom: 1.75rem;"></p>
-      <button type="button" onclick="closeBookModal()" style="display: block; width: 100%; padding: 0.75rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); color: #fff; font-weight: 600; cursor: pointer; transition: all 0.2s ease;">Close Book Inspection</button>
-    </div>
-  </div>
-
-  <!-- Artisanal Meadow / Celestial Horizon Footer (Ayush Dhibar Inspired) -->
-  <footer id="contact" class="meadow-footer">
-    <!-- Curved Horizon Contour -->
-    <svg class="meadow-hills-svg" viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
-      <path d="M0,60 C320,120 420,10 720,50 C1020,90 1180,20 1440,60 L1440,120 L0,120 Z" fill="#151128" />
-    </svg>
-
-    <div class="container footer-content">
-      <span class="section-eyebrow">Get In Touch</span>
-      <h2 class="footer-callout">
-        Let us build something <em>impossible</em> together.
-      </h2>
-      <p style="color: var(--text-dim); font-size: 1.1rem; max-width: 540px; margin: 0 auto; line-height: 1.6;">
-        Always open to discussing autonomous systems, real-time computer vision architectures, or venture opportunities.
+      <div class="hero-intro-pill">Hi, I'm</div>
+      <h1 class="hero-name-sculpted">Sabhyam</h1>
+      <p class="hero-tagline-editorial">
+        A <strong>14-year-old software engineer and founder</strong> from Jharkhand, India. Building autonomous agent systems, full-stack web platforms, and real-time computer vision architectures.
       </p>
 
-      <div class="footer-action-pills">
-        <a href="mailto:sabhyamtrivedy1@gmail.com" class="btn-tactile-primary">Send Email -></a>
-        <a href="https://github.com/sabhyamtrivedycoder" target="_blank" rel="noopener noreferrer" class="btn-tactile-secondary">GitHub Profile</a>
-        <a href="https://www.linkedin.com/in/sabhyamtrivedy" target="_blank" rel="noopener noreferrer" class="btn-tactile-secondary">LinkedIn Connect</a>
-        <a href="https://sabhyamtrivedycoder.github.io/sabhyam-ai-agent/" target="_blank" rel="noopener noreferrer" class="btn-tactile-secondary">Sabhyam AI Agent</a>
+      <!-- Embedded Chibi Mascot in Hero Sky -->
+      <div class="hero-mascot-wrapper">
+        <div id="sabhyam-mascot-hero"></div>
+        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #ffffff; text-shadow: 0 1px 4px rgba(35, 27, 66, 0.4); margin-top: 0.4rem;">
+          CURSOR-TRACKING CHIBI • CLICK TO BOOP
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Who am I? Section: Overlapping Tilted Polaroids -->
+  <section id="whoami" class="whoami-section">
+    <div class="container whoami-grid">
+      <div class="whoami-narrative">
+        <h2 class="section-serif-heading">Who am I?</h2>
+        <p class="whoami-copy">
+          Hey, I'm <strong>Sabhyam Trivedy</strong>, a 14-year-old software engineer and builder. Over the past four years, I have architected 50+ repositories spanning autonomous multi-agent networks, neural computer vision DSP, and rapid deployment platforms.
+        </p>
+        <p class="whoami-copy">
+          Founder of <strong>Spark2Ship</strong> and <strong>sabhyamai.in</strong>. I believe that relentless execution speed, end-to-end craftsmanship, and clean system design are the only competitive advantages that truly matter.
+        </p>
+        <a href="https://github.com/sabhyamtrivedycoder" target="_blank" rel="noopener noreferrer" class="whoami-link">
+          Explore my GitHub matrix ->
+        </a>
       </div>
 
-      <div class="footer-copyright">
-        Designed & Engineered by Sabhyam Trivedy • Inspired by Ayush Dhibar & William Le • Zero-Emoji Standard
+      <!-- Tilted Overlapping Polaroids -->
+      <div class="polaroids-display">
+        <!-- Photo 1 -->
+        <div class="polaroid-frame polaroid-photo-1">
+          <div class="img-crop">
+            <img src="assets/photos/sabhyam-ceremony.jpg" alt="Sabhyam Roots">
+          </div>
+          <div class="polaroid-label">Me</div>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="polaroid-frame polaroid-photo-2">
+          <div class="img-crop">
+            <img src="assets/photos/sabhyam-blue-kurta.jpg" alt="Sabhyam Future">
+          </div>
+          <div class="polaroid-label">Also Me</div>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="polaroid-frame polaroid-photo-3">
+          <div class="img-crop">
+            <img src="assets/photos/sabhyam-profile.jpg" alt="Sabhyam Flow State">
+          </div>
+          <div class="polaroid-label">Deep Focus</div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Works Section: Tactile Retro Pocket Consoles -->
+  <section id="works" class="works-section">
+    <div class="container">
+      <div class="works-header">
+        <h2 class="section-serif-heading">Stuff I've worked on</h2>
+        <p style="font-size: 1.15rem; color: #ffffff; text-shadow: 0 1px 4px rgba(35, 27, 66, 0.25); margin-top: 0.5rem;">
+          Engineering production-grade applications, developer platforms, and multi-agent systems.
+        </p>
+      </div>
+
+      <div class="works-grid">
+
+        <!-- Console 1: Spark2Ship -->
+        <article class="pocket-console-chassis">
+          <div class="console-oled-window">
+            <img src="assets/spark2ship-preview.png" alt="Spark2Ship Autonomous DevOps Platform">
+          </div>
+
+          <div class="console-control-deck">
+            <div class="console-study-card">
+              <span class="console-study-badge">DEV TOOLING • RAPID DEVOPS</span>
+              <h3 class="console-study-title">Spark2Ship</h3>
+              <p class="console-study-desc">
+                Autonomous venture and deployment accelerator that transforms product ideas into fully deployed production stacks with automated pipelines and cloud routing.
+              </p>
+              <a href="https://github.com/sabhyamtrivedycoder" target="_blank" rel="noopener noreferrer" class="console-project-link">
+                View Project Details ->
+              </a>
+            </div>
+
+            <div class="console-hardware-row">
+              <div class="console-textured-dial"></div>
+              <div class="console-action-buttons">
+                <div class="tactile-grey-button"></div>
+                <div class="tactile-grey-button"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Console 2: Sabhyam AI & MCP Server -->
+        <article class="pocket-console-chassis">
+          <div class="console-oled-window">
+            <img src="assets/photos/sabhyam-maroon.jpg" alt="Sabhyam AI Model Context Protocol Server">
+          </div>
+
+          <div class="console-control-deck">
+            <div class="console-study-card">
+              <span class="console-study-badge">MULTI-AGENT • PROTOCOL IPC</span>
+              <h3 class="console-study-title">sabhyam-ai-mcp</h3>
+              <p class="console-study-desc">
+                Production-grade Model Context Protocol (MCP) server uniting Claude Code, Antigravity, and Codex into a collaborative engineering ecosystem over standard IO.
+              </p>
+              <a href="https://github.com/sabhyamtrivedycoder/sabhyam-ai-mcp" target="_blank" rel="noopener noreferrer" class="console-project-link">
+                View Protocol Specs ->
+              </a>
+            </div>
+
+            <div class="console-hardware-row">
+              <div class="console-textured-dial"></div>
+              <div class="console-action-buttons">
+                <div class="tactile-grey-button"></div>
+                <div class="tactile-grey-button"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Console 3: Neural Computer Vision & DSP -->
+        <article class="pocket-console-chassis">
+          <div class="console-oled-window">
+            <img src="assets/sabhyam.jpg" alt="Neural Computer Vision Systems">
+          </div>
+
+          <div class="console-control-deck">
+            <div class="console-study-card">
+              <span class="console-study-badge">EDGE AI • 60 FPS</span>
+              <h3 class="console-study-title">Neural CV & Gesture DSP</h3>
+              <p class="console-study-desc">
+                Browser-native computer vision applications featuring 468-point facial landmark topology, 21-point hand skeleton tracking, and real-time optical filters.
+              </p>
+              <a href="vision.html" class="console-project-link">
+                Launch Vision Labs ->
+              </a>
+            </div>
+
+            <div class="console-hardware-row">
+              <div class="console-textured-dial"></div>
+              <div class="console-action-buttons">
+                <div class="tactile-grey-button"></div>
+                <div class="tactile-grey-button"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Bookshelf Section: "Wisdom that shaped me" (Exact 3D Books with User Provided Books) -->
+  <section id="bookshelf" class="bookshelf-section">
+    <div class="container">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 3rem auto;">
+        <h2 class="section-serif-heading">Wisdom that shaped me</h2>
+        <p style="font-size: 1.15rem; color: #ffffff; text-shadow: 0 1px 4px rgba(35, 27, 66, 0.25); margin-top: 0.5rem;">
+          Hover over any hardcover volume to swing it open in 3D, or click to inspect key architectural insights.
+        </p>
+      </div>
+
+      <div class="books-3d-stage">
+
+        <!-- Book 1: Steve Jobs (Walter Isaacson) -->
+        <div class="book-3d-wrapper book-steve-jobs" onclick="openBook('steve-jobs')" title="Click to inspect Steve Jobs">
+          <div class="book-spine-face">
+            <span class="book-spine-title">STEVE JOBS</span>
+          </div>
+          <div class="book-cover-face">
+            <div class="book-spine-crease"></div>
+            <img src="assets/books/steve-jobs.jpg" alt="Steve Jobs by Walter Isaacson">
+          </div>
+        </div>
+
+        <!-- Book 2: Zero to One (Peter Thiel) -->
+        <div class="book-3d-wrapper book-zero-to-one" onclick="openBook('zero-to-one')" title="Click to inspect Zero to One">
+          <div class="book-spine-face">
+            <span class="book-spine-title">ZERO TO ONE</span>
+          </div>
+          <div class="book-cover-face">
+            <div class="book-spine-crease"></div>
+            <img src="assets/books/zero-to-one-cover.png" alt="Zero to One by Peter Thiel">
+          </div>
+        </div>
+
+        <!-- Book 3: Build, Don't Talk (Raj Shamani) -->
+        <div class="book-3d-wrapper book-build-dont-talk" onclick="openBook('build-dont-talk')" title="Click to inspect Build, Don't Talk">
+          <div class="book-spine-face">
+            <span class="book-spine-title">BUILD DON'T TALK</span>
+          </div>
+          <div class="book-cover-face">
+            <div class="book-spine-crease"></div>
+            <img src="assets/books/build-dont-talk-cover.png" alt="Build Don't Talk by Raj Shamani">
+          </div>
+        </div>
+
+        <!-- Book 4: The Mom Test -->
+        <div class="book-3d-wrapper book-mom-test" onclick="openBook('the-mom-test')" title="Click to inspect The Mom Test">
+          <div class="book-spine-face">
+            <span class="book-spine-title">THE MOM TEST</span>
+          </div>
+          <div class="book-cover-face">
+            <div class="book-spine-crease"></div>
+            <div style="background: #dc2626; color: #fff; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1rem; text-align: center;">
+              <span style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; line-height: 1.1;">THE MOM TEST</span>
+              <span style="font-size: 0.72rem; margin-top: 0.5rem; opacity: 0.85;">ROB FITZPATRICK</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Book 5: Refactoring UI -->
+        <div class="book-3d-wrapper book-refactoring-ui" onclick="openBook('refactoring-ui')" title="Click to inspect Refactoring UI">
+          <div class="book-spine-face">
+            <span class="book-spine-title">REFACTORING UI</span>
+          </div>
+          <div class="book-cover-face">
+            <div class="book-spine-crease"></div>
+            <div style="background: #0f172a; color: #38bdf8; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1rem; text-align: center;">
+              <span style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; line-height: 1.1; color: #fff;">Refactoring UI</span>
+              <span style="font-size: 0.72rem; margin-top: 0.5rem; color: #38bdf8;">ADAM WATHAN & STEVE SCHOGER</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey Section: Milestone Trail -->
+  <section id="journey" class="journey-section">
+    <div class="container">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 3.5rem auto;">
+        <h2 class="section-serif-heading">Journey so far</h2>
+      </div>
+
+      <div class="milestone-timeline">
+        <div class="milestone-card">
+          <div class="milestone-dot"></div>
+          <span class="milestone-year">2022 • FIRST LOGIC & CODE</span>
+          <h3 class="milestone-heading">Started with C++ & Python Foundations</h3>
+          <p class="milestone-desc">
+            Began self-directed exploration into algorithms, recursion, and core data structures. Solved competitive challenges and automated everyday developer tasks.
+          </p>
+        </div>
+
+        <div class="milestone-card">
+          <div class="milestone-dot"></div>
+          <span class="milestone-year">2023 • SYSTEMS & SPATIAL ENGINE</span>
+          <h3 class="milestone-heading">Architected 3D Web Pipelines & Reactive UIs</h3>
+          <p class="milestone-desc">
+            Engineered full-stack applications with TypeScript, React, and WebGL shader programming, delivering fluid performance across complex states.
+          </p>
+        </div>
+
+        <div class="milestone-card">
+          <div class="milestone-dot"></div>
+          <span class="milestone-year">2024 • FOUNDER & ACCELERATOR</span>
+          <h3 class="milestone-heading">Founded Spark2Ship Platform</h3>
+          <p class="milestone-desc">
+            Launched automated software factory infrastructure to shorten the cycle from architectural diagram to production cloud deployment.
+          </p>
+        </div>
+
+        <div class="milestone-card">
+          <div class="milestone-dot"></div>
+          <span class="milestone-year">2025 • OPTICAL VISION LABS</span>
+          <h3 class="milestone-heading">Real-Time Neural Vision Systems</h3>
+          <p class="milestone-desc">
+            Constructed browser-native computer vision DSP pipelines operating at 60 FPS with facial landmark extraction and hand gesture tracking.
+          </p>
+        </div>
+
+        <div class="milestone-card">
+          <div class="milestone-dot"></div>
+          <span class="milestone-year">2026 • AUTONOMOUS AGENTS</span>
+          <h3 class="milestone-heading">Sabhyam AI & Model Context Protocol (MCP)</h3>
+          <p class="milestone-desc">
+            Shipped production MCP server binding Claude Code, Antigravity, and Codex with shared memory and digital twin orchestration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artisanal Wildflower Meadow Footer -->
+  <footer id="contact" class="meadow-footer-stage">
+    <div class="container" style="position: relative; z-index: 5;">
+      <h2 class="footer-heading">Let's build something meaningful together</h2>
+      <a href="mailto:sabhyamtrivedy1@gmail.com" class="btn-mail-large">Send a Mail</a>
+      <span class="footer-email-text">sabhyamtrivedy1@gmail.com</span>
+    </div>
+
+    <!-- Wildflower Meadow Hill Scenery -->
+    <div class="meadow-scenery-container">
+      <img src="assets/framer/middle-land.png" alt="Wildflower Meadow Hill" class="meadow-middle-land">
+      
+      <!-- 3D Glossy App Icons in the Grass -->
+      <div class="meadow-social-icons">
+        <a href="https://github.com/sabhyamtrivedycoder" target="_blank" rel="noopener noreferrer" class="glossy-social-app app-github" aria-label="GitHub Profile">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+
+        <a href="https://www.linkedin.com/in/sabhyamtrivedy" target="_blank" rel="noopener noreferrer" class="glossy-social-app app-linkedin" aria-label="LinkedIn Profile">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+
+        <a href="https://sabhyamtrivedycoder.github.io/sabhyam-ai-agent/" target="_blank" rel="noopener noreferrer" class="glossy-social-app app-agent" aria-label="Sabhyam AI Agent Website">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </a>
+      </div>
+
+      <img src="assets/framer/front-grass.png" alt="Wildflower Grass Foreground" class="meadow-front-grass">
+    </div>
+
+    <div class="footer-legal">
+      Sabhyam Trivedy © 2026. All rights reserved.
     </div>
   </footer>
 
+  <!-- Interactive 3D Book Detail Modal -->
+  <div id="book-detail-modal">
+    <div style="background: #ffffff; border-radius: 24px; padding: 2.25rem; max-width: 500px; width: 100%; box-shadow: 0 35px 70px rgba(35, 27, 66, 0.45); color: #1e1b4b; text-align: left;">
+      <span id="modal-book-author" style="font-family: var(--font-mono); font-size: 0.72rem; color: #6366f1; letter-spacing: 1px; display: block; margin-bottom: 0.35rem; font-weight: 700;"></span>
+      <h3 id="modal-book-title" style="font-family: var(--font-display); font-size: 1.85rem; color: #111827; line-height: 1.2; margin-bottom: 1rem;"></h3>
+      <div style="height: 1px; background: #e2e8f0; margin-bottom: 1.25rem;"></div>
+      <p style="font-size: 0.75rem; font-family: var(--font-mono); color: #f59e0b; margin-bottom: 0.5rem; text-transform: uppercase; font-weight: 700;">Architectural Takeaway</p>
+      <p id="modal-book-insight" style="font-size: 1rem; color: #475569; line-height: 1.65; margin-bottom: 1.75rem;"></p>
+      <button type="button" onclick="closeBook()" style="display: block; width: 100%; padding: 0.85rem; border-radius: 9999px; background: #111827; color: #ffffff; font-weight: 700; cursor: pointer; border: none; font-size: 0.95rem;">Close Inspection</button>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="assets/mascot.js"></script>
-  <script src="app.js?v=2.5"></script>
+  <script src="app.js?v=3.0"></script>
 </body>
 </html>
