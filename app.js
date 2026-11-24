@@ -289,9 +289,14 @@
     const floatBtn = document.getElementById('floating-gramophone-btn');
     const statusText = document.getElementById('gramophone-status-text');
     const floatState = document.getElementById('floating-gramophone-state');
+    const manualBtn = document.getElementById('gramophone-manual-btn');
+    const manualLabel = document.getElementById('manual-btn-label');
 
     if (!isGramophonePlaying) {
       isGramophonePlaying = true;
+      if (window.Gramophone3D) {
+        window.Gramophone3D.setPlaying(true);
+      }
       playNeedleDrop();
       startVinylNoise();
 
@@ -304,10 +309,15 @@
 
       if (station) station.classList.add('is-playing');
       if (floatBtn) floatBtn.classList.add('is-active');
-      if (statusText) statusText.textContent = 'PLAYING: VOL 1';
+      if (manualBtn) manualBtn.classList.add('is-active');
+      if (manualLabel) manualLabel.textContent = 'PAUSE RECORD';
+      if (statusText) statusText.textContent = 'PLAYING • 78 RPM';
       if (floatState) floatState.textContent = 'PLAYING';
     } else {
       isGramophonePlaying = false;
+      if (window.Gramophone3D) {
+        window.Gramophone3D.setPlaying(false);
+      }
 
       if (chordTimer) {
         clearInterval(chordTimer);
@@ -335,7 +345,9 @@
 
       if (station) station.classList.remove('is-playing');
       if (floatBtn) floatBtn.classList.remove('is-active');
-      if (statusText) statusText.textContent = 'CLICK TO PLAY';
+      if (manualBtn) manualBtn.classList.remove('is-active');
+      if (manualLabel) manualLabel.textContent = 'PLAY RECORD';
+      if (statusText) statusText.textContent = 'READY • 78 RPM';
       if (floatState) floatState.textContent = 'PAUSED';
     }
   };

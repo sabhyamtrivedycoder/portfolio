@@ -259,27 +259,27 @@
           </div>
         </div>
 
-        <!-- Antique Berliner Gramophone (Interactive Vinyl Player) -->
-        <div class="gramophone-3d-station" id="gramophone-station" onclick="toggleGramophone()" title="Click to spin vinyl and play analog acoustic audio">
-          <div class="gramophone-brass-chassis">
-            <div class="gramophone-notes-emitter" id="gramophone-notes"></div>
-            <div class="gramophone-horn-pulse" id="gramophone-horn-pulse"></div>
-            <picture>
-              <source srcset="assets/gramophone.webp" type="image/webp">
-              <img src="assets/gramophone.png" alt="Antique Berliner Gramophone" class="gramophone-asset-img" id="gramophone-img">
-            </picture>
-            <div class="gramophone-vinyl-disc" id="gramophone-vinyl">
-              <div class="vinyl-groove-reflection"></div>
-              <div class="vinyl-center-label">
-                <span class="vinyl-label-text">SABHYAM</span>
-              </div>
+        <!-- Antique Berliner Gramophone (Interactive 3D WebGL Vinyl Player) -->
+        <div class="gramophone-3d-station" id="gramophone-station" title="Drag to rotate in 3D, click manual button to play/pause">
+          <div class="gramophone-canvas-container">
+            <canvas id="gramophone-3d-canvas"></canvas>
+            <div class="gramophone-3d-badge">
+              <span class="badge-3d-text">INTERACTIVE 3D</span>
             </div>
+            <div class="gramophone-drag-hint">DRAG TO ROTATE // CLICK TO PLAY</div>
           </div>
+
           <div class="gramophone-brass-plaque">
             <span class="gramophone-model-name">BERLINER GRAMOPHONE</span>
+            <div class="gramophone-controls-row">
+              <button type="button" class="gramophone-manual-btn" id="gramophone-manual-btn" onclick="toggleGramophone()" aria-label="Play or Pause Record">
+                <span class="btn-indicator-dot" id="manual-btn-dot"></span>
+                <span class="manual-btn-text" id="manual-btn-label">PLAY RECORD</span>
+              </button>
+            </div>
             <div class="gramophone-status-badge">
               <span class="status-indicator-dot" id="gramophone-status-dot"></span>
-              <span class="status-indicator-text" id="gramophone-status-text">CLICK TO PLAY</span>
+              <span class="status-indicator-text" id="gramophone-status-text">READY • 78 RPM</span>
             </div>
             <span class="gramophone-inspect-link" onclick="event.stopPropagation(); openBook('gramophone');">[Inspect Architecture]</span>
           </div>
@@ -462,6 +462,8 @@
   </aside>
 
   <!-- Scripts -->
+  <script src="assets/three.min.js"></script>
+  <script src="assets/gramophone-3d.js?v=6.0"></script>
   <script src="assets/mascot.js?v=6.0"></script>
   <script src="app.js?v=6.0"></script>
 </body>
