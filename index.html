@@ -259,32 +259,6 @@
           </div>
         </div>
 
-        <!-- Antique Berliner Gramophone (Interactive 3D WebGL Vinyl Player) -->
-        <div class="gramophone-3d-station" id="gramophone-station" title="Drag to rotate in 3D, click manual button to play/pause">
-          <div class="gramophone-canvas-container">
-            <canvas id="gramophone-3d-canvas"></canvas>
-            <div class="gramophone-3d-badge">
-              <span class="badge-3d-text">INTERACTIVE 3D</span>
-            </div>
-            <div class="gramophone-drag-hint">DRAG TO ROTATE // CLICK TO PLAY</div>
-          </div>
-
-          <div class="gramophone-brass-plaque">
-            <span class="gramophone-model-name">BERLINER GRAMOPHONE</span>
-            <div class="gramophone-controls-row">
-              <button type="button" class="gramophone-manual-btn" id="gramophone-manual-btn" onclick="toggleGramophone()" aria-label="Play or Pause Record">
-                <span class="btn-indicator-dot" id="manual-btn-dot"></span>
-                <span class="manual-btn-text" id="manual-btn-label">PLAY RECORD</span>
-              </button>
-            </div>
-            <div class="gramophone-status-badge">
-              <span class="status-indicator-dot" id="gramophone-status-dot"></span>
-              <span class="status-indicator-text" id="gramophone-status-text">READY • 78 RPM</span>
-            </div>
-            <span class="gramophone-inspect-link" onclick="event.stopPropagation(); openBook('gramophone');">[Inspect Architecture]</span>
-          </div>
-        </div>
-
         <!-- 3D Physical Bookshelf Wooden Plank -->
         <div class="bookshelf-shelf-plank"></div>
 
@@ -444,26 +418,7 @@
     </div>
   </div>
 
-  <!-- Bottom-Right Floating Gramophone Controller -->
-  <aside class="floating-gramophone-corner" aria-label="Gramophone Audio Controller">
-    <button type="button" class="floating-gramophone-btn" id="floating-gramophone-btn" onclick="toggleGramophone()" aria-label="Toggle Gramophone Music">
-      <div class="floating-gramophone-icon-wrap">
-        <picture>
-          <source srcset="assets/gramophone.webp" type="image/webp">
-          <img src="assets/gramophone.png" alt="Gramophone" class="floating-gramophone-thumb">
-        </picture>
-        <span class="floating-gramophone-pulse" id="floating-gramophone-pulse"></span>
-      </div>
-      <div class="floating-gramophone-meta">
-        <span class="floating-gramophone-title">GRAMOPHONE</span>
-        <span class="floating-gramophone-state" id="floating-gramophone-state">OFFLINE</span>
-      </div>
-    </button>
-  </aside>
-
   <!-- Scripts -->
-  <script src="assets/three.min.js"></script>
-  <script src="assets/gramophone-3d.js?v=6.0"></script>
   <script src="assets/mascot.js?v=6.0"></script>
   <script src="app.js?v=6.0"></script>
 </body>
