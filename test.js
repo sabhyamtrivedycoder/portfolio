@@ -80,7 +80,11 @@ runTest('All required 3D Framer and Book assets exist on disk', () => {
     'assets/books/zero-to-one-cover.png',
     'assets/books/build-dont-talk-cover.png',
     'assets/mascots/sabhyam-directions.webp',
-    'assets/mascots/sabhyam-reactions.webp'
+    'assets/mascots/sabhyam-reactions.webp',
+    'assets/logo.png',
+    'assets/logo-badge.png',
+    'favicon.png',
+    'favicon.svg'
   ];
 
   for (const asset of requiredAssets) {

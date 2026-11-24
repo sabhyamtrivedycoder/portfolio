@@ -129,6 +129,74 @@ a {
   opacity: 0.7;
 }
 
+/* Floating Brand Logo Badge (Top-Left Corner) */
+.floating-brand-corner {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  z-index: 999;
+}
+
+.brand-logo-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 
+    0 16px 32px rgba(31, 24, 61, 0.22),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
+  overflow: hidden;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.brand-logo-badge:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 22px 42px rgba(31, 24, 61, 0.32);
+}
+
+.brand-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 13px;
+  display: block;
+}
+
+/* Nav Menu Brand Header */
+.nav-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.nav-brand-mini-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(31, 24, 61, 0.2);
+}
+
+.nav-brand-text {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(31, 24, 61, 0.3);
+}
+
 /* Floating Navigation */
 .floating-nav-corner {
   position: fixed;
@@ -1211,8 +1279,20 @@ a {
   position: relative;
   z-index: 10;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.85);
   padding-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.footer-mini-brand {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(31, 24, 61, 0.25);
 }
 
 /* Modal Reader */
