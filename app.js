@@ -13,6 +13,7 @@
   const cloudLeft = document.querySelector('.cloud-hero-left');
   const heroTitle = document.querySelector('.hero-name-sculpted');
   const speechBubble = document.querySelector('.mascot-speech-bubble');
+  const butterflyScene = document.querySelector('.butterfly-3d-scene');
 
   window.addEventListener('mousemove', (e) => {
     const cx = window.innerWidth / 2;
@@ -21,19 +22,22 @@
     const dy = (e.clientY - cy) / cy;
 
     if (balloon) {
-      balloon.style.transform = `translate3d(${dx * 35}px, ${dy * 30}px, 0) rotate(${dx * 4}deg)`;
+      balloon.style.transform = `translate3d(${dx * -45}px, ${dy * -32}px, 0) rotateZ(${dx * 6}deg) rotateY(${dx * 8}deg)`;
     }
     if (cloudRight) {
-      cloudRight.style.transform = `translate3d(${dx * -25}px, ${dy * -18}px, 0)`;
+      cloudRight.style.transform = `translate3d(${dx * -35}px, ${dy * -22}px, 0)`;
     }
     if (cloudLeft) {
-      cloudLeft.style.transform = `translate3d(${dx * 20}px, ${dy * 15}px, 0)`;
+      cloudLeft.style.transform = `translate3d(${dx * 30}px, ${dy * 20}px, 0)`;
     }
     if (heroTitle) {
-      heroTitle.style.transform = `perspective(1000px) rotateY(${dx * 6}deg) rotateX(${-dy * 6}deg) translateZ(25px)`;
+      heroTitle.style.transform = `perspective(1000px) rotateY(${dx * 8}deg) rotateX(${-dy * 8}deg) translateZ(30px)`;
     }
     if (speechBubble) {
-      speechBubble.style.transform = `translate3d(${dx * 12}px, ${dy * 8}px, 0)`;
+      speechBubble.style.transform = `translate3d(${dx * 16}px, ${dy * 10}px, 0)`;
+    }
+    if (butterflyScene) {
+      butterflyScene.style.transform = `perspective(900px) rotateY(${dx * 12}deg) rotateX(${-dy * 8}deg) translateZ(${Math.abs(dx) * 25}px)`;
     }
   });
 
