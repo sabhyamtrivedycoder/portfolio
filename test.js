@@ -94,7 +94,21 @@ runTest('All required 3D Framer and Book assets exist on disk', () => {
   }
 });
 
-// 6. Zero Emojis Constraint
+// 6. 3D World Clock & Chronometer Verification
+runTest('3D World Clock & Focus Chronometer section configured with global hubs', () => {
+  assert(indexHtml.includes('id="chronometer"'), 'Must include chronometer section');
+  assert(indexHtml.includes('HOME BASE • INDIA'), 'Must include Home Base India');
+  assert(indexHtml.includes('Silicon Valley'), 'Must include Silicon Valley');
+  assert(indexHtml.includes('New York'), 'Must include New York');
+  assert(indexHtml.includes('London'), 'Must include London');
+  assert(indexHtml.includes('Tokyo'), 'Must include Tokyo');
+  assert(indexHtml.includes('Singapore'), 'Must include Singapore');
+  assert(indexHtml.includes('focus-chronometer-dock'), 'Must include focus chronometer dock');
+  assert(appJs.includes('Asia/Kolkata'), 'app.js must handle Asia/Kolkata timezone');
+  assert(appJs.includes('America/Los_Angeles'), 'app.js must handle America/Los_Angeles timezone');
+});
+
+// 7. Zero Emojis Constraint
 runTest('Strict zero emojis check across HTML, CSS, JS, and Markdown', () => {
   const emojiRegex = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
   const filesToCheck = [indexHtml, stylesCss, appJs, mascotJs];

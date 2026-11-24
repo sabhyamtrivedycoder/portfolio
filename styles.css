@@ -1308,6 +1308,517 @@ a {
   padding: 1.5rem;
 }
 
+/* ==========================================================================
+   3D GLOBAL TECH HUB CHRONOMETER & WORLD CLOCK
+   ========================================================================== */
+.chronometer-section {
+  position: relative;
+  padding: 6rem 0;
+  background: radial-gradient(circle at 50% 20%, rgba(12, 62, 255, 0.08) 0%, transparent 70%);
+}
+
+.chronometer-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.chronometer-pill {
+  display: inline-block;
+  padding: 0.45rem 1.15rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #79a6ff;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.chronometer-subheading {
+  font-size: 1.15rem;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(31, 24, 61, 0.25);
+  margin-top: 0.5rem;
+}
+
+.chronometer-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  perspective: 1200px;
+}
+
+/* Master Hero Card: India Standard Time (IST) */
+.chronometer-hero-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(32, 26, 62, 0.85) 0%, rgba(20, 16, 40, 0.9) 100%);
+  border: 1.5px solid rgba(121, 166, 255, 0.35);
+  border-radius: 28px;
+  padding: 2.5rem;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(12, 62, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.chronometer-hero-card:hover {
+  transform: translateY(-4px) scale3d(1.01, 1.01, 1.01);
+  box-shadow: 
+    0 30px 70px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(12, 62, 255, 0.25);
+}
+
+.hero-card-glow {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(12, 62, 255, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(30px);
+}
+
+.hero-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.hero-hub-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.live-pulse-dot {
+  width: 10px;
+  height: 10px;
+  background: #00f0ff;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #00f0ff;
+  animation: pulseBeacon 1.8s infinite;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.5; }
+}
+
+.hub-base-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+}
+
+.hub-tz-offset {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  color: #79a6ff;
+  font-weight: 700;
+  background: rgba(12, 62, 255, 0.18);
+  border: 1px solid rgba(121, 166, 255, 0.3);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.hero-clock-body {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* 3D Master Analog Clock Dial */
+.analog-clock-3d.master-analog {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #251e48 0%, #130f28 100%);
+  border: 4px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.6),
+    inset 0 4px 10px rgba(0, 0, 0, 0.5),
+    inset 0 -4px 10px rgba(255, 255, 255, 0.1),
+    0 0 25px rgba(12, 62, 255, 0.3);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-face {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Hour Ticks */
+.clock-hour-ticks {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 0.4) 0deg 1.5deg,
+    transparent 1.5deg 30deg
+  );
+  -webkit-mask: radial-gradient(circle, transparent 65%, black 66%);
+  mask: radial-gradient(circle, transparent 65%, black 66%);
+}
+
+.clock-hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: 50% 100%;
+  border-radius: 4px;
+}
+
+.hand-hour {
+  width: 4px;
+  height: 44px;
+  margin-left: -2px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.hand-minute {
+  width: 3px;
+  height: 62px;
+  margin-left: -1.5px;
+  background: #79a6ff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.hand-second {
+  width: 1.5px;
+  height: 72px;
+  margin-left: -0.75px;
+  background: #ff5277;
+  box-shadow: 0 0 8px rgba(255, 82, 119, 0.8);
+}
+
+.clock-center-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff, #79a6ff);
+  border: 2px solid #130f28;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+/* Digital Readout */
+.hero-time-readout {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.digital-time-display {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2px;
+  line-height: 1;
+  text-shadow: 0 4px 16px rgba(12, 62, 255, 0.4);
+}
+
+.digital-date-display {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.hub-location-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.82rem;
+  color: #79a6ff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Global Tech Hub Satellite Grid */
+.tech-hubs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.5rem;
+}
+
+.hub-3d-card {
+  background: linear-gradient(135deg, rgba(32, 26, 62, 0.75) 0%, rgba(20, 16, 40, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 1.4rem;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.2rem;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  transform-style: preserve-3d;
+}
+
+.hub-3d-card:hover {
+  transform: translateY(-6px) scale3d(1.02, 1.02, 1.02);
+  border-color: rgba(121, 166, 255, 0.45);
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(12, 62, 255, 0.15);
+}
+
+.hub-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hub-city-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.hub-tz-badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  color: #79a6ff;
+  background: rgba(12, 62, 255, 0.12);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.hub-card-center {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.analog-clock-mini {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #251e48 0%, #130f28 100%);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.mini-hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: 50% 100%;
+  border-radius: 2px;
+}
+
+.mini-hour {
+  width: 2px;
+  height: 16px;
+  margin-left: -1px;
+  background: #ffffff;
+}
+
+.mini-minute {
+  width: 1.5px;
+  height: 22px;
+  margin-left: -0.75px;
+  background: #79a6ff;
+}
+
+.mini-second {
+  width: 1px;
+  height: 24px;
+  margin-left: -0.5px;
+  background: #ff5277;
+}
+
+.mini-center-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  margin-top: -2.5px;
+  margin-left: -2.5px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.hub-digital-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.hub-digital-time {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.hub-digital-sub {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 0.35rem;
+}
+
+.hub-status-pill {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.35rem 0.6rem;
+  text-align: center;
+}
+
+/* 3D Interactive Deep-Work Focus Chronometer Dock */
+.focus-chronometer-dock {
+  background: linear-gradient(135deg, rgba(28, 22, 54, 0.9) 0%, rgba(16, 12, 34, 0.95) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 2rem 2.5rem;
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.focus-chronometer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.chronometer-label-group {
+  max-width: 440px;
+}
+
+.chronometer-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: #79a6ff;
+  letter-spacing: 2px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.chronometer-headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.6rem;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+.chronometer-desc {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.chronometer-readout-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.stopwatch-display-3d {
+  background: #0d0a1d;
+  border: 2px solid rgba(121, 166, 255, 0.3);
+  border-radius: 16px;
+  padding: 0.85rem 1.75rem;
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #00f0ff;
+  text-shadow: 0 0 16px rgba(0, 240, 255, 0.6);
+  letter-spacing: 2px;
+  display: flex;
+  align-items: baseline;
+  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.8);
+}
+
+.time-fraction {
+  font-size: 1.4rem;
+  color: #79a6ff;
+}
+
+.chronometer-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-chrono {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.65rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-chrono-start {
+  background: linear-gradient(135deg, #0c3eff, #4f7fff);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(12, 62, 255, 0.4);
+}
+
+.btn-chrono-start:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(12, 62, 255, 0.6);
+}
+
+.btn-chrono-start.active {
+  background: linear-gradient(135deg, #ff5277, #ff7a97);
+  box-shadow: 0 6px 18px rgba(255, 82, 119, 0.4);
+}
+
+.btn-chrono-reset {
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.btn-chrono-reset:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .whoami-grid {

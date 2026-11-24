@@ -39,6 +39,7 @@
       </div>
       <a href="#hero">Home</a>
       <a href="#whoami">About me</a>
+      <a href="#chronometer">World Clock</a>
       <a href="#works">Works</a>
       <a href="#bookshelf">Books</a>
       <a href="#journey">Journey</a>
@@ -123,6 +124,195 @@
           </div>
           <div class="polaroid-label">Deep Focus</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D Global Tech Hub Chronometer & Focus Timer -->
+  <section id="chronometer" class="chronometer-section">
+    <div class="container">
+      <div class="chronometer-header">
+        <div class="chronometer-pill">GLOBAL HORIZON • REAL-TIME SYNCHRONIZATION</div>
+        <h2 class="section-serif-heading">World tech hubs & timer</h2>
+        <p class="chronometer-subheading">
+          Coordinating distributed engineering across global timezones from my home base in Jharkhand, India.
+        </p>
+      </div>
+
+      <!-- Main Chronometer Stage -->
+      <div class="chronometer-stage">
+
+        <!-- Master Home Base Dial: India Standard Time (IST) -->
+        <div class="chronometer-hero-card">
+          <div class="hero-card-glow"></div>
+          <div class="hero-card-header">
+            <div class="hero-hub-badge">
+              <span class="live-pulse-dot"></span>
+              <span class="hub-base-title">HOME BASE • INDIA</span>
+            </div>
+            <span class="hub-tz-offset">UTC +5:30 (IST)</span>
+          </div>
+
+          <div class="hero-clock-body">
+            <!-- 3D Analog Clock Dial -->
+            <div class="analog-clock-3d master-analog" id="clock-india-analog">
+              <div class="clock-face">
+                <div class="clock-hour-ticks"></div>
+                <div class="clock-hand hand-hour" id="hand-india-hour"></div>
+                <div class="clock-hand hand-minute" id="hand-india-minute"></div>
+                <div class="clock-hand hand-second" id="hand-india-second"></div>
+                <div class="clock-center-pin"></div>
+              </div>
+            </div>
+
+            <!-- Digital Readout & Date -->
+            <div class="hero-time-readout">
+              <div class="digital-time-display" id="digital-india-time">00:00:00</div>
+              <div class="digital-date-display" id="digital-india-date">Tuesday, 24 November 2026</div>
+              <div class="hub-location-tag">Jharkhand & Bengaluru Engineering HQ</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Global Tech Hub Satellite Cards Grid -->
+        <div class="tech-hubs-grid">
+          
+          <!-- Hub 1: Silicon Valley / San Francisco -->
+          <div class="hub-3d-card" data-tz="America/Los_Angeles" id="hub-sf">
+            <div class="hub-card-top">
+              <span class="hub-city-name">Silicon Valley</span>
+              <span class="hub-tz-badge">PST • UTC -8</span>
+            </div>
+            <div class="hub-card-center">
+              <div class="analog-clock-mini">
+                <div class="mini-hand mini-hour" id="hand-sf-hour"></div>
+                <div class="mini-hand mini-minute" id="hand-sf-minute"></div>
+                <div class="mini-hand mini-second" id="hand-sf-second"></div>
+                <div class="mini-center-pin"></div>
+              </div>
+              <div class="hub-digital-box">
+                <div class="hub-digital-time" id="digital-sf-time">00:00</div>
+                <div class="hub-digital-sub" id="digital-sf-sub">-13h 30m vs India</div>
+              </div>
+            </div>
+            <div class="hub-status-pill" id="status-sf">San Francisco, CA</div>
+          </div>
+
+          <!-- Hub 2: New York City -->
+          <div class="hub-3d-card" data-tz="America/New_York" id="hub-nyc">
+            <div class="hub-card-top">
+              <span class="hub-city-name">New York</span>
+              <span class="hub-tz-badge">EST • UTC -5</span>
+            </div>
+            <div class="hub-card-center">
+              <div class="analog-clock-mini">
+                <div class="mini-hand mini-hour" id="hand-nyc-hour"></div>
+                <div class="mini-hand mini-minute" id="hand-nyc-minute"></div>
+                <div class="mini-hand mini-second" id="hand-nyc-second"></div>
+                <div class="mini-center-pin"></div>
+              </div>
+              <div class="hub-digital-box">
+                <div class="hub-digital-time" id="digital-nyc-time">00:00</div>
+                <div class="hub-digital-sub" id="digital-nyc-sub">-10h 30m vs India</div>
+              </div>
+            </div>
+            <div class="hub-status-pill" id="status-nyc">East Coast Tech</div>
+          </div>
+
+          <!-- Hub 3: London -->
+          <div class="hub-3d-card" data-tz="Europe/London" id="hub-london">
+            <div class="hub-card-top">
+              <span class="hub-city-name">London</span>
+              <span class="hub-tz-badge">GMT • UTC +0</span>
+            </div>
+            <div class="hub-card-center">
+              <div class="analog-clock-mini">
+                <div class="mini-hand mini-hour" id="hand-london-hour"></div>
+                <div class="mini-hand mini-minute" id="hand-london-minute"></div>
+                <div class="mini-hand mini-second" id="hand-london-second"></div>
+                <div class="mini-center-pin"></div>
+              </div>
+              <div class="hub-digital-box">
+                <div class="hub-digital-time" id="digital-london-time">00:00</div>
+                <div class="hub-digital-sub" id="digital-london-sub">-5h 30m vs India</div>
+              </div>
+            </div>
+            <div class="hub-status-pill" id="status-london">Europe Tech Hub</div>
+          </div>
+
+          <!-- Hub 4: Tokyo -->
+          <div class="hub-3d-card" data-tz="Asia/Tokyo" id="hub-tokyo">
+            <div class="hub-card-top">
+              <span class="hub-city-name">Tokyo</span>
+              <span class="hub-tz-badge">JST • UTC +9</span>
+            </div>
+            <div class="hub-card-center">
+              <div class="analog-clock-mini">
+                <div class="mini-hand mini-hour" id="hand-tokyo-hour"></div>
+                <div class="mini-hand mini-minute" id="hand-tokyo-minute"></div>
+                <div class="mini-hand mini-second" id="hand-tokyo-second"></div>
+                <div class="mini-center-pin"></div>
+              </div>
+              <div class="hub-digital-box">
+                <div class="hub-digital-time" id="digital-tokyo-time">00:00</div>
+                <div class="hub-digital-sub" id="digital-tokyo-sub">+3h 30m vs India</div>
+              </div>
+            </div>
+            <div class="hub-status-pill" id="status-tokyo">Robotics & Spatial</div>
+          </div>
+
+          <!-- Hub 5: Singapore -->
+          <div class="hub-3d-card" data-tz="Asia/Singapore" id="hub-sg">
+            <div class="hub-card-top">
+              <span class="hub-city-name">Singapore</span>
+              <span class="hub-tz-badge">SGT • UTC +8</span>
+            </div>
+            <div class="hub-card-center">
+              <div class="analog-clock-mini">
+                <div class="mini-hand mini-hour" id="hand-sg-hour"></div>
+                <div class="mini-hand mini-minute" id="hand-sg-minute"></div>
+                <div class="mini-hand mini-second" id="hand-sg-second"></div>
+                <div class="mini-center-pin"></div>
+              </div>
+              <div class="hub-digital-box">
+                <div class="hub-digital-time" id="digital-sg-time">00:00</div>
+                <div class="hub-digital-sub" id="digital-sg-sub">+2h 30m vs India</div>
+              </div>
+            </div>
+            <div class="hub-status-pill" id="status-sg">APAC Cloud Infrastructure</div>
+          </div>
+
+        </div>
+
+        <!-- 3D Interactive Deep-Work Focus Chronometer / Stopwatch -->
+        <div class="focus-chronometer-dock">
+          <div class="focus-chronometer-inner">
+            <div class="chronometer-label-group">
+              <span class="chronometer-tag">SABHAYM DEEP-WORK ENGINE</span>
+              <h3 class="chronometer-headline">Interactive Focus Chronometer</h3>
+              <p class="chronometer-desc">
+                High-precision builder stopwatch for tracking deep focus, algorithmic sprints, and production deployment cycles.
+              </p>
+            </div>
+
+            <div class="chronometer-readout-unit">
+              <div class="stopwatch-display-3d">
+                <span class="time-segment" id="sw-hours">00</span>
+                <span class="time-colon">:</span>
+                <span class="time-segment" id="sw-minutes">00</span>
+                <span class="time-colon">:</span>
+                <span class="time-segment" id="sw-seconds">00</span>
+                <span class="time-colon">.</span>
+                <span class="time-fraction" id="sw-fraction">00</span>
+              </div>
+              <div class="chronometer-controls">
+                <button type="button" class="btn-chrono btn-chrono-start" id="btn-sw-toggle">Start Focus</button>
+                <button type="button" class="btn-chrono btn-chrono-reset" id="btn-sw-reset">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
