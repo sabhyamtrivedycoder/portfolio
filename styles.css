@@ -670,14 +670,43 @@ a {
 
 .books-3d-stage {
   position: relative;
-  max-width: 820px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 40px 0 20px 0;
+  padding: 40px 0 32px 0;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 3.5rem;
+  gap: 2.75rem;
   transform-style: preserve-3d;
+}
+
+/* 3D Physical Bookshelf Wooden Plank */
+.bookshelf-shelf-plank {
+  position: absolute;
+  bottom: 0;
+  left: 2%;
+  right: 2%;
+  height: 20px;
+  background: linear-gradient(180deg, #f0e4d4 0%, #d8c2aa 35%, #9e846b 100%);
+  border-radius: 4px;
+  box-shadow: 
+    0 14px 34px rgba(31, 24, 61, 0.45),
+    inset 0 2px 2px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.25);
+  transform: perspective(700px) rotateX(18deg);
+  transform-origin: top;
+  z-index: 1;
+}
+
+.bookshelf-shelf-plank::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 2%;
+  right: 2%;
+  height: 28px;
+  background: radial-gradient(ellipse at center, rgba(31, 24, 61, 0.4) 0%, transparent 75%);
+  pointer-events: none;
 }
 
 /* 3D Physical Book */
@@ -689,12 +718,13 @@ a {
   cursor: pointer;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
   filter: drop-shadow(0 20px 30px rgba(31, 24, 61, 0.35));
+  z-index: 5;
 }
 
 .book-3d-wrapper:hover {
-  transform: translateY(-28px) scale3d(1.08, 1.08, 1.08);
+  transform: translateY(-28px) translateZ(40px) scale3d(1.08, 1.08, 1.08);
   z-index: 30;
-  filter: drop-shadow(0 35px 50px rgba(31, 24, 61, 0.5));
+  filter: drop-shadow(0 38px 52px rgba(31, 24, 61, 0.55));
 }
 
 /* Spine Face */
@@ -739,10 +769,54 @@ a {
   border-radius: 0 4px 4px 0;
   overflow: hidden;
   box-shadow: 
-    10px 15px 30px rgba(31, 24, 61, 0.3),
-    inset 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    16px 20px 35px rgba(31, 24, 61, 0.4),
+    inset -3px 0 6px rgba(0, 0, 0, 0.35);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1;
+}
+
+/* 3D Physical Book Pages Block */
+.book-pages-edge {
+  position: absolute;
+  top: 4px;
+  left: 48px;
+  width: 178px;
+  height: 267px;
+  background: repeating-linear-gradient(
+    90deg,
+    #f8fafc 0px,
+    #f8fafc 2px,
+    #cbd5e1 3px
+  );
+  transform-origin: left;
+  transform: rotateY(79deg) translateZ(-4px);
+  box-shadow: 
+    inset 0 0 10px rgba(0, 0, 0, 0.25),
+    12px 14px 20px rgba(31, 24, 61, 0.25);
+  border-radius: 0 3px 3px 0;
+  pointer-events: none;
+}
+
+/* Dynamic Specular Sheen Sweep across Book Cover */
+.book-cover-face::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 65%,
+    transparent 100%
+  );
+  transform: translateX(-150%);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.book-3d-wrapper:hover .book-cover-face::after {
+  transform: translateX(150%);
 }
 
 .book-3d-wrapper:hover .book-cover-face {
@@ -933,20 +1007,171 @@ a {
   pointer-events: none;
 }
 
-.meadow-butterflies {
+/* True 3D Butterfly System: Dual-Wing 3D Flapping & Dynamic 3D Flight Paths */
+.butterfly-3d-scene {
   position: absolute;
-  top: 15px;
-  left: 20%;
-  width: 60px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
   z-index: 5;
-  animation: butterflyFlutter 4s infinite ease-in-out;
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+
+.butterfly-3d-rig {
+  position: absolute;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.butterfly-3d-model {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg);
+}
+
+.butterfly-wing-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+
+.butterfly-wing-3d img {
+  display: block;
+  width: 100%;
+  height: auto;
   pointer-events: none;
 }
 
-@keyframes butterflyFlutter {
-  0% { transform: translateY(0px) rotate(0deg) scale(1); }
-  50% { transform: translateY(-15px) rotate(4deg) scale(1.05); }
-  100% { transform: translateY(0px) rotate(-3deg) scale(0.98); }
+.butterfly-wing-3d.wing-l {
+  transform-origin: right center;
+  animation: flapWingLeft 0.22s infinite ease-in-out alternate;
+}
+
+.butterfly-wing-3d.wing-r {
+  transform-origin: left center;
+  animation: flapWingRight 0.22s infinite ease-in-out alternate;
+}
+
+.butterfly-body-spine {
+  width: 3.5px;
+  height: 38px;
+  background: #110901;
+  border-radius: 9999px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  margin: 0 -2px;
+}
+
+@keyframes flapWingLeft {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(-68deg); }
+}
+
+@keyframes flapWingRight {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(68deg); }
+}
+
+/* Butterfly 1: Monarch Amber-Orange (Foreground Left) */
+.butterfly-monarch {
+  top: 15px;
+  left: 18%;
+  width: 68px;
+  filter: drop-shadow(0 20px 14px rgba(25, 12, 45, 0.45));
+  animation: flightPathMonarch 7.5s infinite ease-in-out;
+}
+.butterfly-monarch .butterfly-wing-3d { width: 34px; }
+.butterfly-monarch .wing-l { animation-duration: 0.2s; }
+.butterfly-monarch .wing-r { animation-duration: 0.2s; }
+
+@keyframes flightPathMonarch {
+  0% {
+    transform: translate3d(0px, 0px, 20px) rotateZ(0deg) rotateY(15deg);
+  }
+  25% {
+    transform: translate3d(45px, -32px, 55px) rotateZ(12deg) rotateY(-5deg);
+  }
+  50% {
+    transform: translate3d(95px, -14px, 35px) rotateZ(-8deg) rotateY(20deg);
+  }
+  75% {
+    transform: translate3d(35px, -45px, 70px) rotateZ(16deg) rotateY(-12deg);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 20px) rotateZ(0deg) rotateY(15deg);
+  }
+}
+
+/* Butterfly 2: Morpho Electric-Blue (Midground Center-Right) */
+.butterfly-morpho {
+  top: 25px;
+  right: 22%;
+  width: 52px;
+  filter: 
+    hue-rotate(195deg) 
+    brightness(1.2) 
+    saturate(1.6) 
+    drop-shadow(0 16px 12px rgba(10, 20, 60, 0.4));
+  animation: flightPathMorpho 6.2s infinite ease-in-out;
+}
+.butterfly-morpho .butterfly-wing-3d { width: 26px; }
+.butterfly-morpho .butterfly-body-spine { height: 30px; }
+.butterfly-morpho .wing-l { animation-duration: 0.18s; }
+.butterfly-morpho .wing-r { animation-duration: 0.18s; }
+
+@keyframes flightPathMorpho {
+  0% {
+    transform: translate3d(0px, 0px, 15px) rotateZ(5deg) rotateY(-15deg);
+  }
+  30% {
+    transform: translate3d(-40px, -28px, 45px) rotateZ(-14deg) rotateY(10deg);
+  }
+  65% {
+    transform: translate3d(-75px, -8px, 30px) rotateZ(8deg) rotateY(-20deg);
+  }
+  85% {
+    transform: translate3d(-25px, -38px, 60px) rotateZ(-12deg) rotateY(14deg);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 15px) rotateZ(5deg) rotateY(-15deg);
+  }
+}
+
+/* Butterfly 3: Sunlit Golden Swallowtail (Floating High over Meadow) */
+.butterfly-swallowtail {
+  top: -20px;
+  left: 45%;
+  width: 40px;
+  filter: 
+    hue-rotate(40deg) 
+    brightness(1.3) 
+    saturate(1.4) 
+    drop-shadow(0 12px 10px rgba(35, 20, 5, 0.35));
+  animation: flightPathSwallowtail 9.0s infinite ease-in-out;
+}
+.butterfly-swallowtail .butterfly-wing-3d { width: 20px; }
+.butterfly-swallowtail .butterfly-body-spine { height: 24px; }
+.butterfly-swallowtail .wing-l { animation-duration: 0.24s; }
+.butterfly-swallowtail .wing-r { animation-duration: 0.24s; }
+
+@keyframes flightPathSwallowtail {
+  0% {
+    transform: translate3d(0px, 0px, 10px) rotateZ(-6deg) rotateY(8deg);
+  }
+  35% {
+    transform: translate3d(60px, -24px, 40px) rotateZ(15deg) rotateY(-15deg);
+  }
+  70% {
+    transform: translate3d(20px, 18px, 20px) rotateZ(-10deg) rotateY(12deg);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 10px) rotateZ(-6deg) rotateY(8deg);
+  }
 }
 
 /* 3D Glossy App Icons */
@@ -1003,6 +1228,375 @@ a {
   padding: 1.5rem;
 }
 
+/* ==========================================================================
+   Antique Berliner Gramophone 3D Station
+   ========================================================================== */
+.gramophone-3d-station {
+  position: relative;
+  width: 215px;
+  height: 275px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+  filter: drop-shadow(0 20px 30px rgba(31, 24, 61, 0.35));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.gramophone-3d-station:hover {
+  transform: translateY(-28px) scale3d(1.08, 1.08, 1.08);
+  z-index: 30;
+  filter: drop-shadow(0 35px 50px rgba(212, 160, 23, 0.45));
+}
+
+.gramophone-brass-chassis {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+.gramophone-asset-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.45));
+  transition: transform 0.35s ease;
+}
+
+.gramophone-3d-station.is-playing .gramophone-asset-img {
+  animation: hornAcousticVibration 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes hornAcousticVibration {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(0.4deg) scale(1.012); }
+  100% { transform: rotate(-0.3deg) scale(1.008); }
+}
+
+/* Vinyl Disc Overlay */
+.gramophone-vinyl-disc {
+  position: absolute;
+  left: 39.2%;
+  top: 68.5%;
+  width: 36.4%;
+  height: 9.5%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, #2e2a24 0%, #171512 55%, #050505 100%);
+  border: 1px solid rgba(212, 160, 23, 0.35);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.9), inset 0 0 4px rgba(255, 223, 128, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gramophone-3d-station.is-playing .gramophone-vinyl-disc {
+  opacity: 0.95;
+  animation: spinVinylDisc 1.6s linear infinite;
+}
+
+@keyframes spinVinylDisc {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vinyl-groove-reflection {
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle at center,
+    transparent 0px,
+    transparent 2px,
+    rgba(255, 255, 255, 0.08) 3px,
+    transparent 4px
+  );
+  pointer-events: none;
+}
+
+.vinyl-center-label {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #f59e0b;
+  border: 1px solid #78350f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.8);
+}
+
+.vinyl-label-text {
+  font-family: var(--font-mono);
+  font-size: 3px;
+  font-weight: 800;
+  color: #1a0f02;
+  letter-spacing: -0.2px;
+}
+
+/* Floating Musical Notes Emitter */
+.gramophone-notes-emitter {
+  position: absolute;
+  left: 33.7%;
+  top: 29.8%;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.floating-musical-note {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  animation: floatDriftNote 2.8s cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
+  opacity: 0;
+  color: #fbbf24;
+  filter: drop-shadow(0 2px 6px rgba(245, 158, 11, 0.7));
+}
+
+@keyframes floatDriftNote {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.6) rotate(0deg);
+  }
+  15% {
+    opacity: 1;
+    transform: translate3d(-10px, -25px, 0) scale(1) rotate(-8deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate3d(15px, -65px, 0) scale(1.15) rotate(12deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-15px, -120px, 0) scale(1.25) rotate(-16deg);
+  }
+}
+
+/* Acoustic Horn Pulse Ring */
+.gramophone-horn-pulse {
+  position: absolute;
+  left: 33.7%;
+  top: 29.8%;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(251, 191, 36, 0.6);
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.gramophone-3d-station.is-playing .gramophone-horn-pulse {
+  animation: acousticHornPulse 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes acousticHornPulse {
+  0% {
+    opacity: 0.85;
+    transform: scale(0.5);
+  }
+  70% {
+    opacity: 0.3;
+    transform: scale(3.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(4.8);
+  }
+}
+
+/* Brass Plaque Base */
+.gramophone-brass-plaque {
+  position: relative;
+  width: 95%;
+  margin-top: 0.4rem;
+  padding: 0.45rem 0.65rem;
+  background: linear-gradient(135deg, #2b1d12 0%, #170f09 100%);
+  border: 1px solid rgba(212, 160, 23, 0.45);
+  border-radius: 8px;
+  box-shadow: 
+    0 10px 22px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 223, 128, 0.3);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.gramophone-model-name {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #f59e0b;
+  text-transform: uppercase;
+}
+
+.gramophone-status-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.status-indicator-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #94a3b8;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gramophone-3d-station.is-playing .status-indicator-dot {
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+}
+
+.status-indicator-text {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: #e2e8f0;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.gramophone-inspect-link {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: color 0.2s ease;
+  margin-top: 0.15rem;
+}
+
+.gramophone-inspect-link:hover {
+  color: #f59e0b;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Floating Gramophone Corner Controller
+   ========================================================================== */
+.floating-gramophone-corner {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+}
+
+.floating-gramophone-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1.05rem 0.5rem 0.65rem;
+  background: rgba(22, 17, 39, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  border-radius: 9999px;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 
+    0 16px 36px rgba(15, 10, 30, 0.5),
+    inset 0 1px 0 rgba(255, 223, 128, 0.25);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.floating-gramophone-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  border-color: rgba(212, 160, 23, 0.75);
+  box-shadow: 
+    0 20px 42px rgba(15, 10, 30, 0.6),
+    0 0 20px rgba(212, 160, 23, 0.35);
+}
+
+.floating-gramophone-icon-wrap {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3a2618 0%, #1e130a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  border: 1px solid rgba(212, 160, 23, 0.55);
+}
+
+.floating-gramophone-thumb {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.floating-gramophone-btn.is-active .floating-gramophone-thumb {
+  animation: floatGramoThumb 2s ease-in-out infinite alternate;
+}
+
+@keyframes floatGramoThumb {
+  0% { transform: rotate(0deg) scale(1); }
+  100% { transform: rotate(6deg) scale(1.08); }
+}
+
+.floating-gramophone-pulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #f59e0b;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.floating-gramophone-btn.is-active .floating-gramophone-pulse {
+  animation: audioPulseRing 1.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes audioPulseRing {
+  0% { transform: scale(0.9); opacity: 0.85; }
+  100% { transform: scale(1.65); opacity: 0; }
+}
+
+.floating-gramophone-meta {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.floating-gramophone-title {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #f59e0b;
+}
+
+.floating-gramophone-state {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.floating-gramophone-btn.is-active .floating-gramophone-state {
+  color: #34d399;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .whoami-grid {
@@ -1024,5 +1618,22 @@ a {
   }
   .floating-balloon {
     display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .floating-nav-corner {
+    bottom: 1rem;
+    left: 1rem;
+  }
+  .floating-gramophone-corner {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  .floating-gramophone-meta {
+    display: none;
+  }
+  .floating-gramophone-btn {
+    padding: 0.45rem;
   }
 }

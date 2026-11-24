@@ -259,6 +259,35 @@
           </div>
         </div>
 
+        <!-- Antique Berliner Gramophone (Interactive Vinyl Player) -->
+        <div class="gramophone-3d-station" id="gramophone-station" onclick="toggleGramophone()" title="Click to spin vinyl and play analog acoustic audio">
+          <div class="gramophone-brass-chassis">
+            <div class="gramophone-notes-emitter" id="gramophone-notes"></div>
+            <div class="gramophone-horn-pulse" id="gramophone-horn-pulse"></div>
+            <picture>
+              <source srcset="assets/gramophone.webp" type="image/webp">
+              <img src="assets/gramophone.png" alt="Antique Berliner Gramophone" class="gramophone-asset-img" id="gramophone-img">
+            </picture>
+            <div class="gramophone-vinyl-disc" id="gramophone-vinyl">
+              <div class="vinyl-groove-reflection"></div>
+              <div class="vinyl-center-label">
+                <span class="vinyl-label-text">SABHYAM</span>
+              </div>
+            </div>
+          </div>
+          <div class="gramophone-brass-plaque">
+            <span class="gramophone-model-name">BERLINER GRAMOPHONE</span>
+            <div class="gramophone-status-badge">
+              <span class="status-indicator-dot" id="gramophone-status-dot"></span>
+              <span class="status-indicator-text" id="gramophone-status-text">CLICK TO PLAY</span>
+            </div>
+            <span class="gramophone-inspect-link" onclick="event.stopPropagation(); openBook('gramophone');">[Inspect Architecture]</span>
+          </div>
+        </div>
+
+        <!-- 3D Physical Bookshelf Wooden Plank -->
+        <div class="bookshelf-shelf-plank"></div>
+
       </div>
     </div>
   </section>
@@ -329,7 +358,49 @@
 
     <!-- Wildflower Meadow Hill Scenery -->
     <div class="meadow-scenery-container">
-      <img src="assets/framer/butterflies.png" alt="Butterflies" class="meadow-butterflies">
+      <!-- True 3D Fluttering Butterfly Trio (Full Dual-Wings with Real 3D Flapping & Z-Depth) -->
+      <div class="butterfly-3d-scene" aria-label="3D Fluttering Butterflies">
+        
+        <!-- Butterfly 1: Monarch Amber-Orange (Foreground Left) -->
+        <div class="butterfly-3d-rig butterfly-monarch">
+          <div class="butterfly-3d-model">
+            <div class="butterfly-wing-3d wing-l">
+              <img src="assets/framer/butterfly-wing-l.png" alt="Monarch Left Wing">
+            </div>
+            <div class="butterfly-body-spine"></div>
+            <div class="butterfly-wing-3d wing-r">
+              <img src="assets/framer/butterfly-wing-r.png" alt="Monarch Right Wing">
+            </div>
+          </div>
+        </div>
+
+        <!-- Butterfly 2: Morpho Electric-Blue (Midground Center-Right) -->
+        <div class="butterfly-3d-rig butterfly-morpho">
+          <div class="butterfly-3d-model">
+            <div class="butterfly-wing-3d wing-l">
+              <img src="assets/framer/butterfly-wing-l.png" alt="Morpho Left Wing">
+            </div>
+            <div class="butterfly-body-spine"></div>
+            <div class="butterfly-wing-3d wing-r">
+              <img src="assets/framer/butterfly-wing-r.png" alt="Morpho Right Wing">
+            </div>
+          </div>
+        </div>
+
+        <!-- Butterfly 3: Sunlit Golden Swallowtail (Floating High over Meadow) -->
+        <div class="butterfly-3d-rig butterfly-swallowtail">
+          <div class="butterfly-3d-model">
+            <div class="butterfly-wing-3d wing-l">
+              <img src="assets/framer/butterfly-wing-l.png" alt="Golden Left Wing">
+            </div>
+            <div class="butterfly-body-spine"></div>
+            <div class="butterfly-wing-3d wing-r">
+              <img src="assets/framer/butterfly-wing-r.png" alt="Golden Right Wing">
+            </div>
+          </div>
+        </div>
+
+      </div>
       <img src="assets/framer/middle-land.png" alt="Wildflower Meadow Hill" class="meadow-middle-land">
       
       <!-- 3D Glossy App Icons in the Grass -->
@@ -372,6 +443,23 @@
       <button type="button" onclick="closeBook()" style="display: block; width: 100%; padding: 0.85rem; border-radius: 9999px; background: #111827; color: #ffffff; font-weight: 700; cursor: pointer; border: none; font-size: 0.95rem;">Close Inspection</button>
     </div>
   </div>
+
+  <!-- Bottom-Right Floating Gramophone Controller -->
+  <aside class="floating-gramophone-corner" aria-label="Gramophone Audio Controller">
+    <button type="button" class="floating-gramophone-btn" id="floating-gramophone-btn" onclick="toggleGramophone()" aria-label="Toggle Gramophone Music">
+      <div class="floating-gramophone-icon-wrap">
+        <picture>
+          <source srcset="assets/gramophone.webp" type="image/webp">
+          <img src="assets/gramophone.png" alt="Gramophone" class="floating-gramophone-thumb">
+        </picture>
+        <span class="floating-gramophone-pulse" id="floating-gramophone-pulse"></span>
+      </div>
+      <div class="floating-gramophone-meta">
+        <span class="floating-gramophone-title">GRAMOPHONE</span>
+        <span class="floating-gramophone-state" id="floating-gramophone-state">OFFLINE</span>
+      </div>
+    </button>
+  </aside>
 
   <!-- Scripts -->
   <script src="assets/mascot.js?v=4.2"></script>
