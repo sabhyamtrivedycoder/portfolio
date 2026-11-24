@@ -32,18 +32,30 @@
 
   <!-- Bottom-Left Floating Navigation Corner -->
   <aside class="floating-nav-corner" aria-label="Page Navigation">
-    <nav class="nav-menu-card">
+    <nav class="nav-menu-card crystal-glass" id="nav-floating-card">
       <div class="nav-brand-header">
-        <img src="assets/logo-badge.png?v=7.0" alt="STI Logo" class="nav-brand-mini-logo">
-        <span class="nav-brand-text">SABHAYM</span>
+        <div class="nav-brand-left">
+          <img src="assets/logo-badge.png?v=7.0" alt="STI Logo" class="nav-brand-mini-logo">
+          <span class="nav-brand-text">SABHAYM</span>
+        </div>
+        <button type="button" class="nav-toggle-btn" id="nav-toggle-trigger" aria-label="Toggle navigation menu" aria-expanded="true" title="Toggle Menu">
+          <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
       </div>
-      <a href="#hero">Home</a>
-      <a href="#whoami">About me</a>
-      <a href="#chronometer">World Clock</a>
-      <a href="#works">Works</a>
-      <a href="#bookshelf">Books</a>
-      <a href="#journey">Journey</a>
-      <a href="#contact">Contact</a>
+      
+      <div class="nav-crystal-divider" id="nav-divider"></div>
+
+      <div class="nav-links-collapsible" id="nav-links-container">
+        <a href="#hero">Home</a>
+        <a href="#whoami">About me</a>
+        <a href="#chronometer">World Clock</a>
+        <a href="#works">Works</a>
+        <a href="#bookshelf">Books</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
   </aside>
 

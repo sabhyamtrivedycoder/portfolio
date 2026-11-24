@@ -247,6 +247,44 @@
   updateClocks();
   setInterval(updateClocks, 1000);
 
+  // --- Crystal Glass Navigation Menu Open/Close Toggle ---
+  const navFloatingCard = document.getElementById('nav-floating-card');
+  const navToggleTrigger = document.getElementById('nav-toggle-trigger');
+  const navBrandHeader = document.querySelector('.nav-brand-header');
+
+  function toggleNavMenu(e) {
+    if (!navFloatingCard) return;
+    if (e) e.stopPropagation();
+    const isCurrentlyCollapsed = navFloatingCard.classList.contains('collapsed');
+
+    if (isCurrentlyCollapsed) {
+      navFloatingCard.classList.remove('collapsed');
+      if (navToggleTrigger) {
+        navToggleTrigger.setAttribute('aria-expanded', 'true');
+        navToggleTrigger.setAttribute('title', 'Collapse Menu');
+      }
+    } else {
+      navFloatingCard.classList.add('collapsed');
+      if (navToggleTrigger) {
+        navToggleTrigger.setAttribute('aria-expanded', 'false');
+        navToggleTrigger.setAttribute('title', 'Expand Menu');
+      }
+    }
+  }
+
+  if (navToggleTrigger) {
+    navToggleTrigger.addEventListener('click', toggleNavMenu);
+  }
+
+  // Allow clicking header pill when collapsed to expand
+  if (navBrandHeader) {
+    navBrandHeader.addEventListener('click', (e) => {
+      if (navFloatingCard && navFloatingCard.classList.contains('collapsed')) {
+        toggleNavMenu(e);
+      }
+    });
+  }
+
   // --- 3 Books Matrix ---
   const bookData = {
     'steve-jobs': {

@@ -108,7 +108,17 @@ runTest('3D World Clock & Focus Chronometer section configured with global hubs'
   assert(appJs.includes('America/Los_Angeles'), 'app.js must handle America/Los_Angeles timezone');
 });
 
-// 7. Zero Emojis Constraint
+// 7. Crystal Glass Navigation & Open/Close Toggle
+runTest('Crystal glass navigation menu with open/close toggle configured', () => {
+  assert(indexHtml.includes('crystal-glass'), 'Must include crystal-glass class');
+  assert(indexHtml.includes('nav-toggle-trigger'), 'Must include toggle trigger button');
+  assert(indexHtml.includes('nav-crystal-divider'), 'Must include crystal incision divider');
+  assert(stylesCss.includes('.nav-menu-card.crystal-glass'), 'styles.css must style crystal glass');
+  assert(stylesCss.includes('.nav-menu-card.crystal-glass.collapsed'), 'styles.css must handle collapsed state');
+  assert(appJs.includes('toggleNavMenu'), 'app.js must implement toggleNavMenu function');
+});
+
+// 8. Zero Emojis Constraint
 runTest('Strict zero emojis check across HTML, CSS, JS, and Markdown', () => {
   const emojiRegex = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
   const filesToCheck = [indexHtml, stylesCss, appJs, mascotJs];
